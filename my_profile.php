@@ -6,7 +6,7 @@
 
 	// load profile data
 	$profile_data = load_my_profile_data();
-	$profile_data = $profile_data[0];
+	$profile_data = @$profile_data[0];
 
 ?>
 
@@ -24,7 +24,7 @@
                     
                </div>
                <div class="profile_data">
-                    <h3 class="profile_name">Waqas Saleem <?php if (get_profile_status() == 'verified'): ?>
+                    <h3 class="profile_name"><?= $profile_data['fname'] . ' ' . $profile_data['lname'] ?>  <?php if (get_profile_status() == 'verified'): ?>
                     	<span class="badge badge-success">verified</span>
                     <?php endif ?></h3>
                     <p class="profile_title">Professional WordPress Developer</p>
@@ -73,17 +73,44 @@
 				
 				</div>
 
+               		
+
                <div class="bg_white">
-               	<form action="">
+
+               	<form action="" class="ed_hide" id="show_form">
                		<div class="form-group">
-               			<textarea name="" id="" placeholder="Enter About Your Skills" class="form-control" cols="30" rows="6"></textarea>
+               			<textarea name="" id="info_text" placeholder="Enter About Your Skills" class="form-control" cols="30" rows="6"><?= $profile_data['profile_info']; ?></textarea>
                			<p class="field_desc">Write a brief description about you, your skills, your work experience.</p>
                		</div>
                		<div class="form-group">
-               			<input type="submit" value="Save" class="btn btn-md btn-primary">
+               			<input type="submit" id="info_submit" value="Save" class="btn btn-md btn-primary">
                		</div>
                	</form>
-               </div>   
+
+               	<?php if (!$profile_data['profile_info']): ?>
+               		<form action="" id="hide_form">
+               			<div class="form-group">
+               				<textarea name="" id="info_text" placeholder="Enter About Your Skills" class="form-control" cols="30" rows="6"></textarea>
+               				<p class="field_desc">Write a brief description about you, your skills, your work experience.</p>
+               			</div>
+               			<div class="form-group">
+               				<input type="submit" id="info_submit" value="Save" class="btn btn-md btn-primary">
+               			</div>
+               		</form>
+               	<?php endif ?>
+               	
+
+               	<div class="row" id="remove_info">
+               		<div class="col-lg-11">
+               			<p id="show_pinfo"><?= $profile_data['profile_info']; ?></p>
+               		</div>
+               		<div class="col-lg-1">
+               			<a href="#" id="show_info_form"><span class="fa fa-edit"></span></a>
+               		</div>
+               		
+               		
+               	</div>
+              </div>   
 
             <div class="bg_white">
                		
@@ -239,6 +266,9 @@
 		</div>
 	</div>
 </div>
+
+
+
 
 
 <?php include 'footer.php'; ?>

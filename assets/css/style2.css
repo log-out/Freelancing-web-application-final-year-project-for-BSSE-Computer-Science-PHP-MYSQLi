@@ -177,6 +177,7 @@ p.cat_name {
 
 .profile_name {
 	margin-bottom: 3px;
+  text-transform: capitalize;
 }
 
 .profile_rating i{
