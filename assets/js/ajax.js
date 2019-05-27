@@ -12,7 +12,7 @@ $(document).ready(function(){
 			$('#show_form').hide('slow');
 			$('#hide_form').hide('slow');
 			$('#remove_info').show('fast');
-			$('#show_pinfo').text(msg);
+			$('#show_pinfo').text(msg); 
 
 		})
 		.fail(function(error) {
