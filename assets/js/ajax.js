@@ -29,6 +29,33 @@ $(document).ready(function(){
 	});
 
 
+	$('#edit_ptitle').click(function(event) {
+		/* Act on the event */
+		event.preventDefault();
+		$('.profile_title').hide('slow');
+		$('#ptitle_field').removeClass('ed_hide');
+
+	});
+
+	$('#update_ptitle').click(function(event) {
+		/* Act on the event */
+		event.preventDefault();
+
+		var data = $('#edit_ptitle_field').val();
+
+		$.post('includes/ajax_profile.php', {edit_ptitle_field: data, ptitle_post_submit: true})
+		.done(function(msg) {
+			$('#ptitle_field').hide('slow');
+			$('#ptitle').show('slow');
+			$('#ptitle').text(msg);
+
+		})
+		.fail(function(error) {
+			alert(error);
+		})
+	});
+
+
 
 
 

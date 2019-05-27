@@ -27,7 +27,19 @@
                     <h3 class="profile_name"><?= $profile_data['fname'] . ' ' . $profile_data['lname'] ?>  <?php if (get_profile_status() == 'verified'): ?>
                     	<span class="badge badge-success">verified</span>
                     <?php endif ?></h3>
-                    <p class="profile_title">Professional WordPress Developer</p>
+
+					<?php if (!$profile_data['profile_title']): ?>
+						<p id="ptitle" class="profile_title">Enter your profile title in a few words. <a href="#" id="edit_ptitle"> <span style="font-size: 15px; margin-left: 10px;" class="fa fa-pencil-alt"></span></a></p>
+					<?php else: ?>
+                    	<p id="ptitle" class="profile_title"><?= $profile_data['profile_title']; ?> <a href="#" id="edit_ptitle"> <span style="font-size: 15px; margin-left: 10px;" class="fa fa-pencil-alt"></span></a></p>
+                	<?php endif; ?>
+					
+					<div class="ed_hide" id="ptitle_field">
+                    	<input type="text" id="edit_ptitle_field" value="<?= $profile_data['profile_title']; ?>" class="edit_ptitle">
+                    	<button class="ptitle_btn" id="update_ptitle">Save</button>
+                    </div>
+
+
                     <p class="profile_rating">
                          <i class="fa fa-star"></i> 
                          <i class="fa fa-star"></i> 
