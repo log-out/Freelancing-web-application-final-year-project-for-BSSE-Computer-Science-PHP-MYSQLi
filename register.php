@@ -7,11 +7,11 @@
 
 	// load profile data
 	$profile_data = load_my_profile_data();
-	$profile_data = $profile_data[0];
+	$profile_data = @$profile_data[0];
 
 	// load gig data
 	$gig_data = load_my_gig_data();
-	$gig_data = $gig_data[0];
+	$gig_data = @$gig_data[0];
 
 	// skills to array
 	$profile_skills = $profile_data['skills'];
