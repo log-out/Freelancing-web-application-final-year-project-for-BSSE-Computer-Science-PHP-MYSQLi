@@ -1,4 +1,5 @@
 <?php include 'includes/conn.php'; ?>
+<?php include 'functions.php'; ?>
 <!DOCTYPE html> 
 <html>
 <head>
@@ -38,18 +39,24 @@
 		<div class="col-sm-8">
 			<div class="top-links">
 				<ul>
-					<li><a href="login.php">Log In</a></li>
-					<li><a href="login.php">Sign Up</a></li>
+					<?php if (!is_session_set()) { ?>
+						<li><a href="login.php">Log In</a></li>
+						<li><a href="login.php">Sign Up</a></li>
+					<?php } ?>
+							
 					<li><a href="#" class="btn btn-sm custom-button">Post Job</a></li>
+
+					<?php if (is_session_set()) { ?>
 					 <li class="dropdown">
     					<img src="assets/images/dp.jpg" class="dropdown-toggle img-responsive dp-img" data-toggle="dropdown">
     						<ul class="dropdown-menu">
       							<li><a href="my_profile.php"><i class="fa fa-user"></i> Profile</a></li>
       							<li><a href="register.php"><i class="fa fa-cog"></i> Settings</a></li>
       							<li><a href="#"><i class="fa fa-life-ring"></i> Help and Support</a></li>
-      							<li><a href="#"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+      							<li><a href="logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
     							</ul>
   					</li>
+  					<?php } ?>
 
 				</ul>
 			</div><!-- //Top Links -->

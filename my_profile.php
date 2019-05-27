@@ -1,5 +1,14 @@
 <?php include 'header.php'; ?>
 
+<?php include_once 'templates/verified_notice.php'; ?>
+
+<?php 
+
+	// load profile data
+	$profile_data = load_my_profile_data();
+	$profile_data = $profile_data[0];
+
+?>
 
 <div class="row" style="margin: 30px auto;">
 	<div class="col-lg-4">
@@ -7,10 +16,17 @@
           <div class="bg_white">
                
                <div class="profile_img">
-                    <img src="assets/images/dp.jpg" alt="">
+               	<?php if ($profile_data['profileimage']): ?>
+               		<img src="assets/images/profile_images/<?= $profile_data['profileimage'] ?>" alt="">
+               	<?php else: ?>
+					<img src="assets/images/user_thumbnail.png" alt="">
+               	<?php endif; ?>
+                    
                </div>
                <div class="profile_data">
-                    <h3 class="profile_name">Waqas Saleem</h3>
+                    <h3 class="profile_name">Waqas Saleem <?php if (get_profile_status() == 'verified'): ?>
+                    	<span class="badge badge-success">verified</span>
+                    <?php endif ?></h3>
                     <p class="profile_title">Professional WordPress Developer</p>
                     <p class="profile_rating">
                          <i class="fa fa-star"></i> 

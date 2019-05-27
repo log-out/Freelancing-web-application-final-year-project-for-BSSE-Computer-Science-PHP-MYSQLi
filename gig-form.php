@@ -1,7 +1,8 @@
 <?php include 'header.php'; ?>
 
+
 <div class="container" style="margin: 20px auto;">
-<form action="">
+<form action="gig_added.php" method="post" enctype="multipart/form-data">
 	<div class="bg_white">
 		<div class="niche_form_head">
 			<h1>Niche Form</h1>
@@ -15,19 +16,19 @@
 			</div>
 			<div class="col-lg-4">
 				<span>Niche Category</span>
-				<select name="" class="form-control" id="">
-					<option value="">Web Design</option>
-					<option value="">WordPress</option>
-					<option value="">Logo Design</option>
-					<option value="">iOS App</option>
-					<option value="">Android App</option>
-					<option value="">Content Writter</option>
-					<option value="">Web Researcher</option>
+				<select name="niche_category" class="form-control" id="">
+					<option value="Web Design">Web Design</option>
+					<option value="WordPress">WordPress</option>
+					<option value="Logo Design">Logo Design</option>
+					<option value="iOS App">iOS App</option>
+					<option value="Android Ap">Android App</option>
+					<option value="Content Writter">Content Writter</option>
+					<option value="Web Researcher">Web Researcher</option>
 				</select>
 			</div>
 			<div class="col-lg-4">
 				<span>Price</span>
-				<input type="number" class="form-control" name="niche_title">
+				<input type="number" class="form-control" name="niche_price">
 
 			</div>
 		</div>
@@ -35,23 +36,23 @@
 		<div class="form-group row">
 			<div class="col-lg-6">
 				<span>Niche Tag</span>
-				<input type="text" name="" class="form-control">
+				<input type="text" name="niche_tag" class="form-control">
 				<p class="field_desc">Please add more tag, seprated by comma</p>
 			</div>
 
 			<div class="col-lg-6">
 				<span>Niche Image</span>
-				<input type="file" class="form-control">
+				<input type="file" name="niche_image" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group row">
 			<div class="col-lg-12">
 				<span>Niche Description</span>
-				<textarea name="" id="" cols="30" rows="10" class="form-control tinymce"></textarea>
+				<textarea name="niche_desc" id="" cols="30" rows="10" class="form-control tinymce"></textarea>
 			</div>
 		</div>
-		<input type="submit" name="" class="btn btn-md custom-button-2" value="submit">
+		<input type="submit" name="gig_submit" class="btn btn-md custom-button-2" value="submit">
 	</div>
 </form>
 </div>

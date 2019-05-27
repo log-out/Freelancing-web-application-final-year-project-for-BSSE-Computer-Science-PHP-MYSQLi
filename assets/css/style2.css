@@ -46,7 +46,7 @@ p.cat_name {
 	background-color: #fff;
 	padding: 20px;
 	border: 1px solid #ddd;
-	border-top: 0px;
+	/*border-top: 0px;*/
 }
 
 /*Niche*/
@@ -410,4 +410,13 @@ p.field_desc {
 }
 
 
+.ed_alert {
+  width: 50%;
+  margin: 50px auto;
+}
+
+
+.ed_hide {
+  display: none;
+}
 
