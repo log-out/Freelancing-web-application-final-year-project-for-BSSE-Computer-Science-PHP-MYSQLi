@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="hero-text">
-					<h1>Hire freelancers.</h1>
+					<h1>Hire freelancers.form Github</h1>
 					<h1>Make things happen.™</h1>
 					<p>Grow your business through the top freelancing<br>
 website. Hire talent nearby or worldwide.</p>
