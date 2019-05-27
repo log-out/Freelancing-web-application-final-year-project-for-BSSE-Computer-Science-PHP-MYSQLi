@@ -1,0 +1,413 @@
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+a {
+  text-decoration: none;
+  color: #1ab188;
+  transition: .5s ease;
+}
+a:hover {
+  color: #179b77;
+}
+
+body {
+	
+}
+
+.cat_title {
+	border-left: 4px solid #37a000;
+	padding: 8px 5px 8px 3px;
+	background-color: #f9f9f9;
+}
+
+.cat_name a {
+	color: #37a000;
+	padding: 3px 8px;
+	margin: 0px;
+}
+
+p.cat_name {
+	margin-bottom: 4px;
+}
+
+.cat_bg {
+	margin-top: 43px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 17px;
+}
+
+/*Tabs*/
+
+.bg_white {
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-top: 0px;
+}
+
+/*Niche*/
+
+.niche_image {
+	background-image: url(../images/fiverr-wordpress-gig-2.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 150px;
+	width: 100%;
+}
+
+.niche_card {
+	border: 1px solid #ddd;
+	/*box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;*/
+}
+
+.niche_body {
+	padding: 10px;
+	/* margin: 10px; */
+	background: #fff;
+}
+
+.rating i,
+.rating {
+	color: #b2b2b2;
+}
+
+.owner_img{
+	display: inline-block;
+}
+.owner_img img {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	margin-top: -30px;
+}
+
+.owner_name {
+	display: inline-block;
+	padding-left: 3px;
+}
+
+.owner_name h4 {
+	margin: 0px;
+}
+
+.owner_name a {
+	font-size: 14px;
+	color: #303030;
+	text-decoration: none;
+	
+}
+
+.owner_name a:hover {
+    text-decoration: none;
+}
+
+.owner_name p.level {
+	font-size: 12px;
+	color: #b2b2b2;
+	margin: 0px;
+}
+
+.niche_title a {
+	font-size: 15px;
+	color: #303030;
+}
+
+.fix_pad {
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+/*Job Feed
+============================================*/
+
+.job_feed_title {
+	padding: 15px;
+}
+
+.job_title h3 {
+	color: #81b0e1;
+	font-size: 20px;
+    font-weight: 400;
+}
+
+.job_desc span {
+	color: #b2b6b7;
+}
+
+.job_desc  strong {
+	padding-left: 0px; 
+	color: #b2b6b7;
+}
+
+.job_tag {
+	background-color: #e0e0e0;
+    margin: 3px 5px;
+    padding: 4px 17px;
+    border-radius: 4px;
+}
+
+/*Profile image*/
+
+.right_sidebar {
+	margin-top: 47px;
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 20px 10px;
+}
+
+.profile_img {
+	text-align: center;
+} 
+
+.profile_img img {
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	border-radius: 50%;
+}
+
+.profile_data {
+	text-align: center;
+}
+
+.profile_name {
+	margin-bottom: 3px;
+}
+
+.profile_rating i{
+	color: #ffc100;
+}
+
+
+/* Sign In / Sign Up form 
+=========================================*/
+
+
+
+.form {
+  background: rgba(19, 35, 47, 0.9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: .5s ease;
+}
+.tab-group li a:hover {
+  background: #179b77;
+  color: #ffffff;
+}
+.tab-group .active a {
+  background: #1ab188;
+  color: #ffffff;
+}
+
+.tab-content > div:last-child {
+  display: none;
+}
+
+.login-form h1 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+.login-form label {
+  position: absolute;
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+  left: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 22px;
+}
+label .req {
+  margin: 2px;
+  color: #1ab188;
+}
+
+label.active {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  left: 2px;
+  font-size: 14px;
+}
+label.active .req {
+  opacity: 0;
+}
+
+label.highlight {
+  color: #ffffff;
+}
+
+.login-form input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #ffffff;
+  border-radius: 0;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.login-form input:focus, textarea:focus {
+  outline: 0;
+  border-color: #1ab188;
+}
+
+.login-form textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
+
+.button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #1ab188;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+.button:hover, .button:focus {
+  background: #179b77;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+.forgot {
+  margin-top: -20px;
+  text-align: right;
+}
+
+/* category Sidebar section
+=============================================*/
+
+.cat_panel .panel-heading,
+.cat_panel .panel-default {
+  border: 0px !important;
+  background: 0px !important;
+}
+
+.cat_panel .panel-heading {
+  padding: 3px;
+}
+
+.cat_panel .badge {
+  background: #39cf78 !important;
+}
+
+.cat_panel .panel {
+  box-shadow: none;
+}
+
+
+.cat_panel a{
+  color: #696763;
+}
+
+.cat_panel ul {
+  padding: 1px 0px;
+}
+
+.cat_panel li {
+  list-style: none;
+}
+
+.left-sidebar hr {
+  margin-top: 0px;
+}
+
+.left-sidebar li>a {
+  font-size: 16px !important;
+  padding: 2px !important;
+}
+
+.left-sidebar .well {
+  background: #fff;
+  box-shadow: none;
+}
+
+
+/* Niche Form
+============================================*/
+
+p.field_desc {
+  font-style: italic;;
+}
+
+.niche_form_head h1 {
+  margin-bottom: 0px;
+  color: #000;
+}
+
+.niche_form_head p {
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 40px;
+}
+
+
+

@@ -1,0 +1,508 @@
+/*=== Font Style === */
+@font-face{
+	font-family: "Roboto"
+	src= url("assets/fonts/Roboto-Regular.ttf");
+}
+
+/*=== Typography === */
+body{
+	font-family: 'Roboto' , sans-serif;
+}
+
+/*=== Buttons === */
+.custom-button{
+	background: rgba(46, 204, 113,0.95);
+	color: #fff !important;
+	padding: 10px;
+}
+.custom-button-2{
+	background: rgba(46, 204, 113,0.95);
+	color: #fff !important;
+}
+
+/*=== Section Style === */
+.section{
+	margin-bottom: 90px;
+	margin-top: 90px;
+}
+.section-heading{
+	margin: 25px 0;
+}
+
+/*=== Top Navigation === */
+/*=== Top Bar ===*/
+nav{
+	background: #ffffff;
+	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+}
+.brand a img{
+	margin-top: 13px;
+}
+.top-links{
+	float: right;
+	margin-top: 3px;
+}
+.top-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 10px;
+}
+.top-links ul li a{
+	color: #666;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 12px;
+}
+
+/*=== Categories Bar ===*/
+.categories-bar{
+	background: #f9f9f9;
+	text-align: center;
+}
+.categories-bar ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 10px 20px;
+}
+.categories-bar ul li a{
+	color: gray;
+}
+.navbar-toggle{
+	border: 1px solid #333;
+	position: relative;
+bottom: 61px;
+}
+.navbar-toggle .icon-bar{
+	background: #333;
+}
+
+/*==== Hero Section Style ==== */
+.hero{
+	background: url('../images/hero.png');
+	background-size: cover;
+	background-repeat: no-repeat; 
+	padding-bottom: 90px;
+	padding-top: 90px;
+	background-position: center center;
+}
+.hero-text h1{
+	font-size: 50px;
+	line-height: 60px;
+	font-weight: 700;
+	color: #fff;
+}
+.hero-text p{
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #fff;
+}
+.form-input{
+	height: 45px;
+	width: 60%;
+}
+.hero-form input{
+	display: inline-block;
+}
+.tags{
+	color: gray;
+	margin-top: 10px;
+}
+.tags-text{
+	color: #fff;
+	margin-right: 10px;
+	font-size: 16px;
+	font-weight: 500;
+}
+.tags-data{
+	background: #e0e0e0;
+	padding: 5px;
+	border-radius: 7%;
+	border: 1px solid gray;
+	color: gray;
+}
+
+/*=== Professional Services Style === */
+.item img{
+	height: 300px;
+}
+.item-text{
+	color: #fff;
+	position: relative;
+	bottom: 290px;
+	left: 10px;
+}
+.item-text h3{
+	margin: 0px;
+}
+.carousel-indicators{
+	top: 140px;
+	width: 100%;
+	left: 0;
+	margin-left: 0;
+	text-align: none;
+}
+
+.carousel-inner a:hover{
+	text-decoration: none;
+}
+
+/*=== categories Box Style ===*/
+.categories-box .section-heading{
+	text-align: center;
+}
+.cat-box{
+	text-align: center;
+	border-radius: 2px;
+	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+	padding: 20px 0;
+}
+.cat-box img{
+	margin: 0 auto;
+}
+.cat-box h3{
+	font-size: 15px;
+	font-weight: 300;
+	color: #222;
+	line-height: 21px;
+}
+.categories-box .row{
+	margin: 20px 0;
+}
+
+/*=== How It Work Style === */
+.how-work .section-heading{
+	text-align: center;
+}
+
+.circle-work{
+	background: #e0e0e0;
+	text-align: center;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 6px rgba(57,73,76,.35);
+    border: 5px solid #fff;
+    margin: 0 auto;
+}
+.button-tab{
+	text-align: center;
+}
+.button-tab a{
+	margin-top: 30px;
+}
+
+/*=== Add Style === */
+.add{
+	background: url('../images/call.jpg');
+	background-size: cover;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	margin-top: 90px;
+}
+.inner-add{
+	text-align: center;
+	padding: 60px 0;
+	color: #000;
+}
+
+
+
+
+
+/*=== Footer Style ===*/
+footer{
+	background: #656565;
+	padding: 20px 0;
+}
+
+/* --- Footer Top --- */
+.footer-top{
+	text-align: center;
+}
+.footer-top p{
+	color: #e0e0e0;
+	font-size: 14px;
+	line-height: 20px;
+}
+.footer-top p a{
+	font-weight: 500;
+	color: #e0e0e0;
+}
+
+/* --- Footer Middle --- */
+.heading{
+	color: #e0e0e0;
+}
+.heading p{
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 15px;
+	margin-left: 40px;
+}
+.footer-middle .links ul{
+	text-align: left;
+}
+.footer-middle .links ul li{
+	list-style: none;
+	margin-bottom: 10px;
+}
+.footer-middle .links ul li a{
+	color: #e0e0e0;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+/*--- Footer Bottom ---*/	
+.footer-bottom .heading{
+	display: inline-block;
+}
+.footer-bottom ul{
+	display: inline-block;
+}
+.footer-bottom ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 10px;
+}
+.footer-bottom ul li a{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	color: #656565;
+	background: #b2b2b2;
+	text-align: center;
+	border-radius: 50%;
+}
+.footer-bottom ul li a:hover{
+	background: #e0e0e0;
+	text-decoration: none;
+}
+.mobile-app{
+	float: right;
+}
+
+/* --- Bottom bar --- */
+.bottom-bar{
+	color: #e0e0e0;
+	font-weight: 400;
+	font-size: 13px;
+}
+
+
+
+
+
+
+/* =======================================================================
+                           Register Page 
+========================================================================== */
+.form-header{
+	margin-top: 80px;
+	margin-bottom: 40px;
+	border: 1px solid #e0e0e0;
+	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+	border-radius: 10px;
+}
+.header-tab{
+	padding: 15px 20px;
+}
+.form-header .active{
+	background: rgba(46, 204, 113,0.95);
+	color: #fff;
+	
+}
+.no-circle{
+	background: rgba(46, 204, 113,0.95);
+	border-radius: 50%;
+	padding: 5px;
+	vertical-align: middle;
+	background: #fff;
+	color: #000;
+	font-weight: 500;
+	font-size: 16px;
+}
+.header-tab .text{
+	font-size: 18px;
+	font-weight: 500;
+	vertical-align: middle;
+}
+.form-data{
+	background: #e0e0e0;
+	padding: 30px;
+}
+.form-data label{
+	margin-top: 10px;
+}
+.form-data{
+	margin-bottom: 40px;
+}
+
+/*==== Skills === */
+#tags{
+  
+ 
+}
+#tags span.tag{
+  cursor:pointer;
+  display:block;
+  float:left;
+  color:#555;
+  background:#add;
+  padding:5px 10px;
+  padding-right:30px;
+  margin:4px;
+}
+#tags span.tag:hover{
+  opacity:0.7;
+}
+#tags span.tag:after{
+ position:absolute;
+ content:"×";
+ border:1px solid;
+ border-radius:10px;
+ padding:0 4px;
+ margin:3px 0 10px 7px;
+ font-size:10px;
+}
+#tags input{
+	display: block;
+  margin:4px;
+  padding:7px;
+  width:100%;
+}
+
+/*=== profile Img ===*/
+.dp-img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+/* === Gig Page design === */
+.gig-box{
+	background: #fff;
+	padding: 20px;
+	margin-top: 50px;
+	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+}
+.gig-body{
+	display: block;
+}
+.gig-about h3{
+	background: #e0e0e0;
+	padding: 10px;
+}
+.gig-about p{
+	line-height: 1.6em;
+}
+.reviews h3{
+	background: #e0e0e0;
+	padding: 10px;
+}
+.reviews-dp img{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+.gig-tags{
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+.gig-tags span{
+	background: #e0e0e0;
+	padding: 5px;
+	border-radius: 20px;
+}
+.gig-sidebar{
+	background: #fff;
+	padding: 10px;
+	margin-top: 50px;
+	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+}
+.gig-sidebar h3{
+	background: #e0e0e0;
+	padding: 5px;
+}
+.gig-sidebar p{
+	margin: 10px 0;
+}
+.gig-sidebar ul{
+	margin-left: 0px;
+	padding-left: 0px;
+}
+.gig-sidebar ul li{
+	list-style: none;
+}
+.gig-sidebar ul li:before{
+	content: '✓';
+	color: rgba(46, 204, 113,0.95);
+	font-size: 18px;
+	font-weight: 700;
+	margin-right: 5px;
+}
+.profile-sidebar{
+	background: #fff;
+	padding: 10px;
+	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+	margin-top: 3px;
+}
+.profile-dp{
+	text-align: center;
+	margin: 15px 0;
+}
+.profile-dp img{
+	margin: 0 auto;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+}
+.profile-dp a{
+	color: #000;
+}
+.profile-dp a h3{
+	margin-top: 3px;
+}
+.btn-primery{
+	border: 1px solid #e0e0e0;
+	margin-top: 5px;
+}
+.profile-details{
+	margin: 0px 10px;
+}
+
+/* === Gig Add === */
+.gig-add{
+	text-align: center;
+	vertical-align: middle;
+	font-size: 56px;
+	padding: 88px 0;
+}
+
+
+
+
+/*==== Media Queries ===*/
+/*=== Mobile Devices ===*/
+@media only screen and (max-width: 668px){
+	/*=== Navigation ===*/
+	.top-links{
+	float: none;
+	text-align: center;
+}
+/*=== Categories Bar ===*/
+.categories-bar ul li{
+	display: block;
+	text-align: left;
+	box-shadow: box-shadow: 0 1px 6px rgba(57,73,76,.35);
+	border-bottom: 1px solid gray;
+}
+}
+
