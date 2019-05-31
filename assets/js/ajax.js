@@ -58,6 +58,9 @@ $(document).ready(function(){
 		})
 	});
 
+	// initilize the tooltip
+	$('[data-toggle="tooltip"]').tooltip(); 
+
 
 
 

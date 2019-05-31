@@ -30,7 +30,7 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="brand">
-				<a href="index.php">
+				<a href="home.php">
 				<img src="assets/images/logo.png" class="img-responsive">
 				</a>
 			</div><!-- //Brand -->
@@ -74,15 +74,13 @@
 
 	<div id="nav" class="categories-bar collapse navbar-collapse">
 		<ul>
-			<li><a href="category.php">Web Dev</a></li>
-			<li><a href="category.php">Mobile Dev</a></li>
-			<li><a href="category.php">Design</a></li>
-			<li><a href="category.php">writing</a></li>
-			<li><a href="category.php">Admin Support</a></li>
-			<li><a href="category.php">Customer Services</a></li>
-			<li><a href="category.php">Marketing</a></li>
-			<li><a href="category.php">Accounting</a></li>
-			<li><a href="category.php">See All Categories</a></li>
+			<li><a href="category.php?cat=Web Design">Web Design</a></li>
+			<li><a href="category.php?cat=WordPress">WordPress</a></li>
+			<li><a href="category.php?cat=Logo Design">Logo Design</a></li>
+			<li><a href="category.php?cat=iOS App">iOS App</a></li>
+			<li><a href="category.php?cat=Android App">Android App</a></li>
+			<li><a href="category.php?cat=Android App">Android App</a></li>
+			<li><a href="category.php?cat=Web Researcher">Web Researcher</a></li>
 		</ul>
 	</div>
 	</div><!--- //Categories -->

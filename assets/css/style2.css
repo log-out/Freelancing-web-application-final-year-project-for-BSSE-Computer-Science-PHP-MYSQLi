@@ -445,3 +445,7 @@ p.field_desc {
       border-radius: 10px;
       padding: 2px 8px;
 }
+
+.progress {
+  background-color: #d6b7b7 !important;
+}
