@@ -103,6 +103,7 @@
 <script type="text/javascript" src="assets/js/price-range.js"></script>
 <script src="assets/Plugin/tinymce/tinymce.min.js"></script>
 <script src="assets/Plugin/init-tinymce.js"></script>
+ <script  src="assets/js/index.js"></script>
 <script type="text/javascript" src="assets/js/main.js"></script>
 <script type="text/javascript" src="assets/js/ajax.js"></script>
 <script type="text/javascript" src="assets/js/custom.js"></script>

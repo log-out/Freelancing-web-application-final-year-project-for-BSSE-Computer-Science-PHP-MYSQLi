@@ -2,8 +2,11 @@
 $(document).ready(function(){
 	/* Act on the event */
 	$('#info_submit').click(function(event) {
+
+
 		/* Act on the event */
 		event.preventDefault();
+
 
 		var data = $('#info_text').val();
 
@@ -20,7 +23,7 @@ $(document).ready(function(){
 		})
 	});
 
-	$('#show_info_form').click(function(event) {
+	$('#show_info_form').click(function() {
 		/* Act on the event */
 		event.preventDefault();
 

@@ -2,6 +2,7 @@
 
 <?php include_once 'templates/verified_notice.php'; ?>
 
+
 <?php 
 
 	// load profile data
@@ -88,7 +89,7 @@
                		
 
                <div class="bg_white">
-
+				<?php if ($profile_data['profile_info']): ?>
                	<form action="" class="ed_hide" id="show_form">
                		<div class="form-group">
                			<textarea name="" id="info_text" placeholder="Enter About Your Skills" class="form-control" cols="30" rows="6"><?= $profile_data['profile_info']; ?></textarea>
@@ -98,6 +99,7 @@
                			<input type="submit" id="info_submit" value="Save" class="btn btn-md btn-primary">
                		</div>
                	</form>
+				<?php endif; ?>
 
                	<?php if (!$profile_data['profile_info']): ?>
                		<form action="" id="hide_form">
@@ -106,10 +108,10 @@
                				<p class="field_desc">Write a brief description about you, your skills, your work experience.</p>
                			</div>
                			<div class="form-group">
-               				<input type="submit" id="info_submit" value="Save" class="btn btn-md btn-primary">
+               				<a href="#" id="info_submit" class="btn btn-md btn-primary">Save</a>
                			</div>
                		</form>
-               	<?php endif ?>
+               	<?php else: ?>
                	
 
                	<div class="row" id="remove_info">
@@ -122,6 +124,8 @@
                		
                		
                	</div>
+
+               <?php endif; ?>
               </div>   
 
             <div class="bg_white">

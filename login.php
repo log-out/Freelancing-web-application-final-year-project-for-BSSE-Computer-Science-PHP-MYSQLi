@@ -4,6 +4,8 @@
     header("location:home.php");
 } ?> 
 
+<?php $user_ip = get_client_ip(); ?>
+
 <?php 
   if(isset($_POST['join_submit'])){
     $first_name =  mysqli_real_escape_string($conn, $_POST['fname'] );
@@ -54,8 +56,8 @@
 
 
 
-    $query = "INSERT INTO users(fname, lname, username, email, password) values('$first_name', '$last_name', '$user_name', '$email', '$password')";
-    $add_users = mysqli_query($conn, $query);
+    $query = "INSERT INTO users(fname, lname, username, email, password, user_ip) values('$first_name', '$last_name', '$user_name', '$email', '$password', '{$user_ip}' )";
+    $add_users = mysqli_query($conn, $query); 
     if(!$add_users){
       die('Query Failed' .mysqli_error($conn));
     }
