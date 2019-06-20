@@ -16,15 +16,26 @@
 			</div>
 			<div class="col-lg-4">
 				<span>Niche Category</span>
-				<select name="niche_category" class="form-control" id="">
-					<option value="Web Design">Web Design</option>
-					<option value="WordPress">WordPress</option>
-					<option value="Logo Design">Logo Design</option>
-					<option value="iOS App">iOS App</option>
-					<option value="Android Ap">Android App</option>
-					<option value="Content Writter">Content Writter</option>
-					<option value="Web Researcher">Web Researcher</option>
-				</select>
+		<select name="niche_category" class="form-control" id="">
+
+			<?php  
+
+				$sql = "SELECT * FROM categories";
+				$query = mysqli_query($conn, $sql);
+				if (!$query) {
+					die() . mysqli_error($conn);
+				} else {
+					while ( $row = mysqli_fetch_assoc($query) ) { ?>
+
+						<option value="<?= $row['category_name']; ?>"><?= $row['category_name']; ?></option>
+						 
+					<?php }
+				}
+
+
+			?>
+
+		</select>
 			</div>
 			<div class="col-lg-4">
 				<span>Price</span>

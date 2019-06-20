@@ -12,12 +12,14 @@
 		$niche_image_temp 	= $_FILES['niche_image']['tmp_name'];
 		$niche_desc 		= mysqli_real_escape_string($conn, $_POST['niche_desc']);
 
+		$niche_cat_slug = createSlug($niche_category );
+
 		// Move uploaded file to server
 		move_uploaded_file($niche_image_temp, "assets/images/gig_images/$niche_image");
 		$username = $_SESSION['username'];
 
 
-		$query = "INSERT INTO gig_data(username, niche_title, niche_category, niche_price, niche_tag, niche_image, niche_desc) VALUES('{$username}', '{$niche_title}', '{$niche_category}', '{$niche_price}', '{$niche_tag}', '{$niche_image}', '{$niche_desc}')";
+		$query = "INSERT INTO gig_data(username, niche_title, niche_category, niche_cat_slug, niche_price, niche_tag, niche_image, niche_desc) VALUES('{$username}', '{$niche_title}', '{$niche_category}','{$niche_cat_slug}', '{$niche_price}', '{$niche_tag}', '{$niche_image}', '{$niche_desc}')";
 
 
 

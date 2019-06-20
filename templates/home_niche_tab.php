@@ -10,15 +10,19 @@
      $sql = "SELECT * FROM gig_data";
      $run_query = mysqli_query( $conn, $sql);
      if (!$run_query) {
-          die('Query Failed ') . mysqli_error($conn); 
-     } else {
-          while ( $row = mysqli_fetch_assoc($run_query) ) {
-               $niche_title = $row['niche_title'];
-               $niche_price = $row['niche_price'];
-               $niche_image = $row['niche_image'];
-               $niche_rating = $row['niche_rating'];
-               $order_completed = $row['order_completed'];
-               $niche_desc  = $row['niche_desc']; ?>
+          die('Query Failed: ') . mysqli_error($conn); 
+     } else { 
+          while ( $row = mysqli_fetch_assoc( $run_query ) ) {
+
+               $id                 = $row['id'];
+               $niche_title        = $row['niche_title'];
+               $niche_price        = $row['niche_price'];
+               $niche_category     = $row['niche_category'];
+               $niche_tag          = $row['niche_tag'];
+               $niche_desc         = $row['niche_desc'];
+               $niche_rating       = $row['niche_rating'];
+               $order_completed    = $row['order_completed'];
+               $niche_image        = $row['niche_image']; ?>
 
 
                <div class="col-lg-4 fix_pad">
@@ -29,7 +33,7 @@
                          <div class="niche_body">
                               <div class="niche_owner">
                                    <div class="owner_img">
-                                        <a href="gig-single.php"><img src="assets/images/profile_images/<?= $profile_data['profileimage']; ?>" alt=""></a>
+                                        <a href="gig-single.php?id=<?= $id; ?>"><img src="assets/images/profile_images/<?= $profile_data['profileimage']; ?>" alt=""></a>
                                    </div>
                                    <div class="owner_name">
                                        <h4 class="text-capitalize"><a href="my_profile.php"><?= $profile_data['fname'] . ' ' . $profile_data['lname']; ?></a></h4>
@@ -37,7 +41,7 @@
                                    </div>
                               </div>
                               <div class="niche_title">
-                                  <h4><a href="gig-single.php"><?= $niche_title; ?></a></h4>
+                                  <h4><a href="gig-single.php?id=<?= $id; ?>"><?= $niche_title; ?></a></h4>
                               </div>
                               <div class="">
                                    <p class="pull-left rating">

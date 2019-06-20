@@ -35,44 +35,28 @@
 							</div>
 						</div>
 					</div> -->
-					
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=Web Design">Web Design</a></h4>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=WordPress">WordPress</a></h4>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=Logo Design">Logo Design</a></h4>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=iOS App">iOS App</a></h4>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=Android App">Android App</a></h4>
-						</div>
-					</div>
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=Content Writter">Content Writter</a></h4>
-						</div>
-					</div>
+	<?php  
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title"><a href="?cat=Web Design">Web Researcher</a></h4>
+		$sql = "SELECT * FROM categories";
+		$query = mysqli_query($conn, $sql);
+		if (!$query) {
+			die() . mysqli_error($conn);
+		} else {
+			while ( $row = mysqli_fetch_assoc($query) ) { ?>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a href="?cat=<?= $row['category_slug']; ?>"><?= $row['category_name']; ?></a></h4>
 						</div>
-					</div>
+				</div>
+				 
+			<?php }
+		}
+
+
+	?>
+				
 
 									
 				</div><!--/category-productsr-->

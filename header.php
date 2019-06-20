@@ -11,8 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/price-range.css">
 	
-
-
 	<!-- Custom Style -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style2.css">
@@ -74,13 +72,24 @@
 
 	<div id="nav" class="categories-bar collapse navbar-collapse">
 		<ul>
-			<li><a href="category.php?cat=Web Design">Web Design</a></li>
-			<li><a href="category.php?cat=WordPress">WordPress</a></li>
-			<li><a href="category.php?cat=Logo Design">Logo Design</a></li>
-			<li><a href="category.php?cat=iOS App">iOS App</a></li>
-			<li><a href="category.php?cat=Android App">Android App</a></li>
-			<li><a href="category.php?cat=Android App">Android App</a></li>
-			<li><a href="category.php?cat=Web Researcher">Web Researcher</a></li>
+
+<?php  
+
+	$sql = "SELECT * FROM categories";
+	$query = mysqli_query($conn, $sql);
+	if (!$query) {
+		die() . mysqli_error($conn);
+	} else {
+		while ( $row = mysqli_fetch_assoc($query) ) { ?>
+
+			<li><a class="text-capitalize" href="category.php?cat=<?= $row['category_slug'] ?>"><?= $row['category_name']; ?></a></li>
+			 
+		<?php }
+	}
+
+
+?>
+
 		</ul>
 	</div>
 	</div><!--- //Categories -->
