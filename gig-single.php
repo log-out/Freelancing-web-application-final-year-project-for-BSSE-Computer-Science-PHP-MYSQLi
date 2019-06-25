@@ -1,25 +1,53 @@
-<?php 	include 'header.php'; ?>
+<?php 	include 'header.php'; ?> 
+
+<?php if (isset($_GET['id'])) {
+	$id = $_GET['id'];
+
+	$sql = "SELECT * FROM gig_data WHERE id = '{$id}' ";
+
+	$select_query = mysqli_query($conn, $sql);
+	while ($row = mysqli_fetch_assoc($select_query)) { 
+		$id 		 = $row['id'];
+		$niche_title = $row['niche_title'];
+		$niche_price = $row['niche_price'];
+		$niche_category = $row['niche_category'];
+		$niche_tag = $row['niche_tag'];
+		$niche_desc = $row['niche_desc'];
+		$niche_rating = $row['niche_rating'];
+		$order_completed = $row['order_completed'];
+		$niche_image = $row['niche_image']; 
+		$order_in_queue = $row['order_in_queue']; 
+	}
+
+	$niche_tag = comma_seprated_to_array($niche_tag);
+	$profile_data = load_my_profile_data(); 
+    $profile_data = @$profile_data[0];
+
+
+
+
+
+
+} else {
+	die('<h1>No Niche Selected</h1>');
+} ?>
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-1">
 			<div class="gig-box">
 				<div class="gig-header">
-					<h2>I will Create A Wordpress Website Or Wordpress Website Design</h2>
+					<h2><?= $niche_title ?></h2>
 					<p class="pull-left profile_rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i> (138) 
+						<i class="fa fa-star"></i> (<?= $niche_rating; ?>) &nbsp; &nbsp; 
 					</p><!-- //Rating -->
-					<p> 2 Orders In Queue</p>
+					<p> <?= $order_in_queue ?> Orders In Queue</p>
 				</div><!-- //Gig Header -->
 					<hr>
 				<div class="gig-body">
 					<div class="gig-cat">
-						<span><a href="#">Programming\</a></span>
-						<span><a href="#">Wordpress\</a></span>
-						<span><a href="#">Full Website Creation</a></span>
+						<span><a href="#"><?= $niche_category; ?></a></span>
 					</div><!-- //Gig Cat -->
 					<div class="Gig-cover">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -27,8 +55,8 @@
 					
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
-			    	<div class="item active">
-			    	<img src="assets/images/fiverr-wordpress-gig-2.jpg" alt="First slide">
+			    <div class="item active">
+			    	<img src="assets/images/gig_images/<?= $niche_image; ?>" alt="First slide">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -36,32 +64,30 @@
                         </div>
                     </div><!-- /header-text -->
 			    </div>
-			    <div class="item">
+			    <!-- <div class="item">
 			    	<img src="assets/images/wordpress.png" alt="Second slide">
-			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
                             
                         </div>
-                    </div><!-- /header-text -->
+                    </div>
 			    </div>
 			    <div class="item">
 			    	<img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="Third slide">
-			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
                             
                         </div>
-                    </div><!-- /header-text -->
-			    </div>
+                    </div>
+			    </div> -->
 			</div>
 			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+			<!-- <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
 		    	<span class="glyphicon glyphicon-chevron-left"></span>
 			</a>
 			<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
 		    	<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
+			</a> -->
 		</div><!-- /carousel -->
 
 </div><!-- Gig Cover -->
@@ -69,45 +95,7 @@
 <div class="gig-about">
 	<h3>About This Niche</h3>
 	<p>
-		Hello & Thanks for checking My Gig 
-I am a Professional WordPress website Developer and designer and designed almost 200+ projects here on fiverr with no negative reviews.
-This Gig is for complete WordPress website Design with These features .
-
-1- Responsive Design works on all devices Mobile , Tabs and desktops.
-2- Color Branding with your provided Logo.
-3- User friendly with quick links and navigation.
-4- SEO optimized and speed optimized 
-5- social media integration 
-6- E commerce or shopping system integration 
-7- Google map and Analytic integration 
-
-You Will Get 
-
-Custom WordPress Website & Design, E commerce, Real Estate , Personal blog and portfolio contact me to get best quotes.
-  Unlimited Revisions 
-WordPress Website Design with modern Themes
-High Level Security
-Fast Loading Speed
-Install SSL on your WordPress website.
-
-Why Chose Us
-
- We provide support after work
- No negative reviews on Fiverr
-Unlimited revision ( depend upon project)
-100% client satisfaction
-Fast conversion
-Fast deliver as team work
-24/7 support
-30 days Guarantee
-
-
-
-
-
-
-Note : If you are not satisfied with packages, inbox us to discuss requirement
-Thanks
+		<?= $niche_desc; ?>
 	</p>
 </div><!-- About Gig -->
 <hr>
@@ -125,19 +113,19 @@ Thanks
 </div><!-- Gig Body -->
 </div><!-- //Gig Box -->
 <div class="gig-tags">
-	<span>Wordpress</span>
-	<span>Wordpress Design</span>
-	<span>Website</span>
-	<span>Website Design</span>
-	<span>website Deisgn</span>
+	<?php foreach ($niche_tag as $value): ?>
+		<span><?= $value; ?></span>
+	<?php endforeach ?>
+	
+	
 </div><!-- Tags -->
 </div>
 
 		<div class="col-sm-4">
 			<div class="gig-sidebar">
-				<h3>Basic Package</h3>
+				<h3>Package Detail</h3>
 				<span style="font-size: 18px;">Price</span>
-				<span style="float: right; font-size: 18px;">$100</span>
+				<span style="float: right; font-size: 18px;">$<?= $niche_price; ?></span>
 				<p>Up to 5 pages, Best for personal website,small business or blog,Design Focus</p>
 				<span><i class="fa fa-clock"></i> 3 Days Delivery Time</span>
 
@@ -154,15 +142,16 @@ Thanks
 
 			<div class="profile-sidebar">
 				<div class="profile-dp">
-					<img src="assets/images/dp.jpg">
-					<a href="#"><h3>Waqas Saleem</h3></a>
-					<p>Professional WordPress Developer</p>
+					<img src="assets/images/profile_images/<?= $profile_data['profileimage']; ?>">
+					<h3 class="profile_name"><?= $profile_data['fname'] . ' ' . $profile_data['lname'] ?>  <?php if (get_profile_status() == 'verified'): ?>
+                         <a href="#" data-toggle="tooltip" title="This profile has been verified by our team!"><span class="badge badge-success">verified</span></a>
+                    <?php endif ?></h3>
+					<p><?= $profile_data['profile_title']; ?></p>
 					<span class="profile_rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i> 5 (138 Reviews)
+					<p class="profile_rating">
+                         <i class="fa fa-star"></i> 
+                         <strong> <?= $profile_data['rating'] ?>.0</strong> (<?= $profile_data['total_order_completed'] ?>)
+                    </p>
 					</span>
 					<a href="#" class="btn btn-block btn-primery">Contact Me</a>
 				</div><!-- //Profile Dp -->

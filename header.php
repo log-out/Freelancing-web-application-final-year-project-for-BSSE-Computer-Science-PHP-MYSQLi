@@ -11,8 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/price-range.css">
 	
-
-
 	<!-- Custom Style -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style2.css">
@@ -30,7 +28,7 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="brand">
-				<a href="index.php">
+				<a href="home.php">
 				<img src="assets/images/logo.png" class="img-responsive">
 				</a>
 			</div><!-- //Brand -->
@@ -74,15 +72,24 @@
 
 	<div id="nav" class="categories-bar collapse navbar-collapse">
 		<ul>
-			<li><a href="category.php">Web Dev</a></li>
-			<li><a href="category.php">Mobile Dev</a></li>
-			<li><a href="category.php">Design</a></li>
-			<li><a href="category.php">writing</a></li>
-			<li><a href="category.php">Admin Support</a></li>
-			<li><a href="category.php">Customer Services</a></li>
-			<li><a href="category.php">Marketing</a></li>
-			<li><a href="category.php">Accounting</a></li>
-			<li><a href="category.php">See All Categories</a></li>
+
+<?php  
+
+	$sql = "SELECT * FROM categories";
+	$query = mysqli_query($conn, $sql);
+	if (!$query) {
+		die() . mysqli_error($conn);
+	} else {
+		while ( $row = mysqli_fetch_assoc($query) ) { ?>
+
+			<li><a class="text-capitalize" href="category.php?cat=<?= $row['category_slug'] ?>"><?= $row['category_name']; ?></a></li>
+			 
+		<?php }
+	}
+
+
+?>
+
 		</ul>
 	</div>
 	</div><!--- //Categories -->

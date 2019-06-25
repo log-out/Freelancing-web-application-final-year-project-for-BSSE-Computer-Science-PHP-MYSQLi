@@ -177,6 +177,7 @@ p.cat_name {
 
 .profile_name {
 	margin-bottom: 3px;
+  text-transform: capitalize;
 }
 
 .profile_rating i{
@@ -420,3 +421,31 @@ p.field_desc {
   display: none;
 }
 
+#show_pinfo {
+  text-align: justify;
+}
+
+.edit_ptitle {
+  border: 0px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.edit_ptitle:focus {
+  border: 0px;
+  outline: none;
+  box-shadow: none;
+
+}
+
+.ptitle_btn {
+  box-shadow: none;
+      border: 1px;
+      background: #ecdddd;
+      border-radius: 10px;
+      padding: 2px 8px;
+}
+
+.progress {
+  background-color: #d6b7b7 !important;
+}
