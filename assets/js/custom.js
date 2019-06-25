@@ -116,3 +116,17 @@ var createAllErrors = function() {
   });
 
 });
+
+
+    /* === Job Posting Form ===*/
+
+window.onload = function () {
+  document.getElementById('hourrate').style.display = 'none';
+}
+function rate_hour() {
+  if (document.getElementById('hrrate')){
+    document.getElementById('hourrate').style.display = 'block';
+    document.getElementById('job-price').style.display = 'none';
+}
+    
+}

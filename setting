@@ -1,0 +1,25 @@
+<?php include 'header.php'; ?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<div id="personal-info">
+				<h3>Personal Info</h3>
+			</div><!-- personal info -->
+
+			<div id="payment-info">
+				<h3>Payment Info</h3>
+			</div><!-- payment info -->
+
+			<div id="security-info">
+				<h3>Security Info</h3>
+			</div><!-- security info -->
+		</div><!-- sidebar -->
+
+		<div class="col-sm-8">
+			
+		</div><!-- main -->
+	</div>
+</div>
+
+<?php include 'footer.php'; ?>

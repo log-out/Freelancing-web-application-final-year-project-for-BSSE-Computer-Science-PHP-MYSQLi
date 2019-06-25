@@ -487,6 +487,26 @@ footer{
 }
 
 
+/* === Job Posting Form === */
+.job-form{
+	border: 1px solid #e0e0e0;
+	padding: 20px 40px;
+	margin: 40px 0;
+}
+.job-form label{
+	margin: 15px 0;
+}
+
+.side-bar{
+	border: 1px solid #e0e0e0;
+	padding: 90px 40px;
+	margin: 40px 0;
+}
+.side-bar p{
+	margin: 30px 0;
+}
+
+
 
 
 /*==== Media Queries ===*/
