@@ -50,7 +50,6 @@
                   <th>Rating</th>
                   <th>User IP</th>
                   <th>Date Created</th>
-                  <th>Action</th>
          
                 </tr>
                 </thead>
@@ -81,6 +80,37 @@
 				  			<a href="includes/users_process.php?verify=true&userid=<?= $row['id']; ?>">Verify</a> | 
 				  		<?php endif; ?>
 				  		<a href="includes/users_process.php?delete=true&userid=<?= $row['id']; ?>">Delete</a>
+              <!-- <a href="#send_notice" rel="modal:open">Send Notice</a> -->
+
+              <!-- <div id="send_notice" class="modal">
+              
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Send Notice</h3>
+                </div>
+              
+                <form action="includes/users_process.php" method="post" class="form-horizontal">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="" class="col-sm-2 control-label">Notice</label>
+
+                      <div class="col-sm-10">
+                        <textarea class="form-control" name="notice_text" id="" placeholder="Enter Notice here" cols="55" rows="10"><?= $row['id'] ?></textarea>
+                        <input type="hidden" value="<?= $row['id'] ?>" name="user_id" class="form-control" id="">
+                        <input type="hidden" value="<?= $row['email'] ?>" name="email" class="form-control" id="">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="box-footer">
+                    <button type="submit" name="submit_notice" class="btn btn-info pull-right">Send Now</button>
+                  </div>
+                 
+                </form>
+              </div>
+
+              <a href="#" rel="modal:close">Close</a>
+            </div> -->
 				  	</p>
 				  	
 				  </td>

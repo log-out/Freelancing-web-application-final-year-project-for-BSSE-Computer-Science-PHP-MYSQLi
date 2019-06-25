@@ -345,6 +345,10 @@
           <a href="category.php"><i class="fa fa-plus"></i> Category</a>
         </li>
 
+         <li>
+          <a href="niches.php"><i class="fa fa-circle-o"></i> Niches</a>
+        </li>
+
         <!-- <li class="treeview menu-open">
           <a href="#">
             <i class="fa fa-plus"></i> <span>Categories</span>
