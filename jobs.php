@@ -17,7 +17,7 @@
 	           <h3><?= $row['job_title']; ?></h3>
 	      </div>
 	      <div class="pull-right">
-	      	<a class="btn btn-info">Bid Now</a>
+	      	<a href="" class="btn btn-info">Bid Now</a>
 	      </div>
 	      <div class="clearfix"></div>
 	           <p class="job_desc">
