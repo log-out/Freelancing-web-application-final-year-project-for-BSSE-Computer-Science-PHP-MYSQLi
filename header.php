@@ -38,8 +38,8 @@
 			<div class="top-links">
 				<ul>
 					<?php if (!is_session_set()) { ?>
-						<li><a href="login.php/#login">Log In</a></li>
-						<li><a href="login.php/#signup">Sign Up</a></li>
+						<li><a href="login.php">Log In</a></li>
+						<li><a href="login.php">Sign Up</a></li>
 					<?php } ?>
 							
 					<li><a href="job-post.php" class="btn btn-sm custom-button">Post Job</a></li>
