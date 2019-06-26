@@ -7,7 +7,7 @@
 					<h1 class="title">Gig Title will be here </h1>
 				</div>
 				<div class="col-sm-4">
-					<a href="#" class="btn btn-lg custom-button-2">Deliver Now</a>
+					<a href="#" class="btn btn-lg custom-button-2" data-toggle="modal" data-target="#myModal">Deliver Now</a>
 				</div>
 	</div><!-- order Header -->
 		<div class="col-sm-8">
@@ -113,5 +113,34 @@ Mauris pulvinar nisl id ante vestibulum commodo. Fusce in ex scelerisque, ullamc
 			</div>
 		</div>
 	</div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Deliver Job</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+        	<label class="custom-file-upload">
+    		<input type="file"/>
+    		<i class="fa fa-upload"></i> Upload work
+			</label>
+			<textarea class="form-control" placeholder="Enter Job details here...">
+				
+			</textarea>
+			<input type="submit" name="submit" value="Deliver Job" class="btn btn-md custom-button-2">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 <?php include 'footer.php'; ?>
