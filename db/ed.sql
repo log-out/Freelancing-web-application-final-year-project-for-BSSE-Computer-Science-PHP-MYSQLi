@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2019 at 01:53 PM
+-- Generation Time: Jun 26, 2019 at 12:37 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -83,6 +83,35 @@ INSERT INTO `gig_data` (`id`, `username`, `niche_title`, `niche_category`, `nich
 (7, 'admin', 'Content Writer ', 'Content Writter', 'content-writter', 23, 'content, writer', 'business-women-crisis.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo', '0', '0', '0', '2019-05-22 21:47:26'),
 (8, 'admin', 'niche title', 'WordPress', 'wordpress', 5, 'wordpress, web design, website', 'bostan-minimal-business-wordpress-website-theme.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo', '0', '0', '0', '2019-05-22 21:53:41'),
 (9, 'admin', 'I will design a professional wordpress website', 'WordPress', 'wordpress', 75, 'wordpress, web design, website', '6-important-factors-in-building-ecommerce-websites.jpg', '<p><strong>Lorem ipsum dolor sit amet, consectetur ad</strong>ipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Dui', '0', '0', '0', '2019-05-25 01:08:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` int(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `job_title` varchar(255) NOT NULL,
+  `job_category` varchar(255) NOT NULL,
+  `job_tags` varchar(256) DEFAULT NULL,
+  `skills_level` varchar(255) DEFAULT NULL,
+  `job_days` int(11) DEFAULT NULL,
+  `job_price` int(11) DEFAULT NULL,
+  `job_desc` varchar(2555) DEFAULT NULL,
+  `job_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `username`, `job_title`, `job_category`, `job_tags`, `skills_level`, `job_days`, `job_price`, `job_desc`, `job_date`) VALUES
+(2, 'admin', 'I need help to design my wordpress website', 'Wordpress', NULL, 'Intermediate', 3, 100, 'i need to done website as soon as possible  with premium theme', '2019-06-26 14:20:49'),
+(3, 'admin', 'I need a brand new logo for me website', 'Logo Design', 'logo, design, graphich', 'Expert', 2, 50, 'I need a brand new logo for my company, with all the files within 2 days. please send your offer ', '2019-06-26 14:46:07'),
+(4, 'admin', 'I need a content writer for my website', 'Content Writter', 'content, writer, seo writer', 'Entry', 10, 80, 'I need a content writer for my website. the content should be 100% unique and SEO friendly', '2019-06-26 15:13:23'),
+(5, 'admin', 'I need a Android App', 'Android App', 'android, app, mobile app', 'Expert', 20, 100, 'i need a android app Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-26 15:32:23');
 
 -- --------------------------------------------------------
 
@@ -168,6 +197,12 @@ ALTER TABLE `gig_data`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -188,6 +223,12 @@ ALTER TABLE `verifications`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

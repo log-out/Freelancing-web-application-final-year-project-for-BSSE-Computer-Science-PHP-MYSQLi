@@ -449,3 +449,41 @@ p.field_desc {
 .progress {
   background-color: #d6b7b7 !important;
 }
+
+
+/* Row Striped */
+
+/* For small screen */
+
+.job_row {
+  padding: 20px;
+  margin: 10px 0px;
+}
+
+.row_striped:nth-child(2n){
+  background-color: #dddddd21;
+  border-radius: 3px;
+  
+}
+
+
+/* For medium screen */    
+/*@media (min-width: 768px) {
+    .row_striped :nth-child(4n), .row_striped :nth-child(4n-1) {
+        background: #dcdcdc;
+    }
+    .row_striped :nth-child(4n-2), .row_striped :nth-child(4n-3) {
+        background: #aaaaaa;
+    }
+}*/
+
+/* For large screen */
+/*@media (min-width: 992px) {
+    .row_striped :nth-child(6n), .row_striped :nth-child(6n-1), .row_striped :nth-child(6n-2) {
+        background: #dcdcdc;
+    }
+    .row_striped :nth-child(6n-3), .row_striped :nth-child(6n-4), .row_striped :nth-child(6n-5) {
+        background: #aaaaaa;
+    }
+}*/
+

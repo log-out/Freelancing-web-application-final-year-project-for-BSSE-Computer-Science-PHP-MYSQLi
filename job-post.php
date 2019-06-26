@@ -7,12 +7,13 @@
 		$username 		= $_SESSION['username'];
 		$job_title		= $_POST['job_title'];
 		$job_category	= $_POST['job_category'];
+		$job_tags		= $_POST['job_tags'];
 		$skills_level	= $_POST['skills_level'];
 		$job_days		= $_POST['job_days'];
 		$job_price		= $_POST['job_price'];
 		$job_desc		= $_POST['job_desc'];
 
-		$sql = "INSERT INTO jobs(username, job_title, job_category, skills_level, job_days, job_price, job_desc) VALUES( '{$username}', '{$job_title}', '{$job_category}', '{$skills_level}', '{$job_days}', '{$job_price}', '{$job_desc}' )";
+		$sql = "INSERT INTO jobs(username, job_title, job_category, job_tags, skills_level, job_days, job_price, job_desc) VALUES( '{$username}', '{$job_title}', '{$job_category}', '{$job_tags}', '{$skills_level}', '{$job_days}', '{$job_price}', '{$job_desc}' )";
 
 		$query = mysqli_query($conn, $sql);
 
@@ -68,6 +69,10 @@
 							<option>Entry</option>
 						</select>
 					</div>
+
+					<label>Tags</label>
+						<input class="form-control" type="text" name="job_tags" placeholder="Tags">
+						<p class="field_desc">Separeted by comma. e.g web, design, php</p>
 
 					<div class="form-group">
 						<h1 class="title">Rate & Availability</h1>
