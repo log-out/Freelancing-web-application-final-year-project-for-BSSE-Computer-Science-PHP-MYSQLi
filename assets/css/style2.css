@@ -462,7 +462,8 @@ p.field_desc {
 
 .row_striped:nth-child(2n){
   background-color: #dddddd21;
-  border-radius: 3px;
+  border-bottom: 2px solid #ddd;
+  border-top: 2px solid #ddd;
   
 }
 

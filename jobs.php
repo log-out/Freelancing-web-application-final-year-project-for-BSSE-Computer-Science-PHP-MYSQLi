@@ -22,7 +22,7 @@
 	      <div class="clearfix"></div>
 	           <p class="job_desc">
 	                <strong>Est. Time: </strong> <span><?= $row['job_days']; ?> days</span> 
-	                <!-- <strong>Posted: </strong> <span>21 minute ago</span> -->
+	                <strong>Budget: </strong> <span>$<?= $row['job_price']; ?></span>
 	                <!-- <strong>Purposals: </strong> <span>7</span> -->
 	           </p>
 	           <p class="job_detail">
