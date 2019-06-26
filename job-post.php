@@ -38,7 +38,7 @@
 					<div class="form-group">
 						<h1 class="title">Job Description</h1>
 						<label>Title Of your Job</label>
-						<input class="form-control" type="text" name="job_title" placeholder="Example: I need help with Blog writing">
+						<input required="" class="form-control" type="text" name="job_title" placeholder="Example: I need help with Blog writing">
 
 						<label>Category</label>
 						<select class="form-control" name="job_category">
