@@ -7,7 +7,7 @@
 		<div class="footer-middle">
 			<div class="row">
 				<div class="col-sm-4">
-					<div class="heading">
+					<div class="headings">
 						<p>COMPANY</p>
 						</div><!-- Heading -->
 						<div class="links">
@@ -22,7 +22,7 @@
 						</div><!-- /Links -->
 				</div>
 				<div class="col-sm-4">
-					<div class="heading">
+					<div class="headings">
 						<p>CATEGORIES</p>
 						</div><!-- Heading -->
 						<div class="links">
@@ -40,7 +40,7 @@
 						</div><!-- /Links -->
 				</div>
 				<div class="col-sm-4">
-					<div class="heading">
+					<div class="headings">
 						<p>BROWSE</p>
 						</div><!-- Heading -->
 						<div class="links">
@@ -62,7 +62,7 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="social-links">
-						<div class="heading">
+						<div class="headings">
 							<p>Follow Us</p> 
 						</div>
 						
@@ -78,7 +78,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="mobile-app">
-					<div class="heading">
+					<div class="headings">
 						<p>Mobile APP</p>
 					</div>
 						<ul>
@@ -103,6 +103,8 @@
 <script type="text/javascript" src="assets/js/price-range.js"></script>
 <script src="assets/Plugin/tinymce/tinymce.min.js"></script>
 <script src="assets/Plugin/init-tinymce.js"></script>
+<!-- Chat Box -->
+<script type="text/javascript" src="assets/js/chat.js"></script>
  <script  src="assets/js/index.js"></script>
 <script type="text/javascript" src="assets/js/main.js"></script>
 <script type="text/javascript" src="assets/js/ajax.js"></script>

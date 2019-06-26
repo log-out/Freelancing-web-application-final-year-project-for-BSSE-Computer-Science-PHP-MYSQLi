@@ -234,10 +234,10 @@ footer{
 }
 
 /* --- Footer Middle --- */
-.heading{
+.headings{
 	color: #e0e0e0;
 }
-.heading p{
+.headings p{
 	font-weight: 500;
 	font-size: 15px;
 	line-height: 15px;
@@ -257,7 +257,7 @@ footer{
 }
 
 /*--- Footer Bottom ---*/	
-.footer-bottom .heading{
+.footer-bottom .headings{
 	display: inline-block;
 }
 .footer-bottom ul{

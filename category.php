@@ -26,7 +26,7 @@
 
 					$sql = "SELECT * FROM gig_data WHERE niche_cat_slug = '{$cat}' ";
 
-					$select_query = mysqli_query($conn, $sql);
+					 $select_query = mysqli_query($conn, $sql);
 					while ($row = mysqli_fetch_assoc($select_query)) { 
 						$id 		 = $row['id'];
 						$niche_title = $row['niche_title'];
