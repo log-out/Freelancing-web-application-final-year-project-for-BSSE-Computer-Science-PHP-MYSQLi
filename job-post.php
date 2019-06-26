@@ -1,31 +1,68 @@
 <?php include 'header.php'; ?>
 
+<?php  
+
+	if (isset($_POST['job_submit'])) {
+		
+		$username 		= $_SESSION['username'];
+		$job_title		= $_POST['job_title'];
+		$job_category	= $_POST['job_category'];
+		$skills_level	= $_POST['skills_level'];
+		$job_days		= $_POST['job_days'];
+		$job_price		= $_POST['job_price'];
+		$job_desc		= $_POST['job_desc'];
+
+		$sql = "INSERT INTO jobs(username, job_title, job_category, skills_level, job_days, job_price, job_desc) VALUES( '{$username}', '{$job_title}', '{$job_category}', '{$skills_level}', '{$job_days}', '{$job_price}', '{$job_desc}' )";
+
+		$query = mysqli_query($conn, $sql);
+
+		if ($query) { ?>
+			<div class="alert alert-success alert-dismissable ed_alert">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			   <strong>Success!</strong> Job has been posted successfully.
+			</div>
+		<?php } 
+
+	}
+
+
+
+?>
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
 			<div class="job-form">
-				<form>
+				<form method="post" action="">
 					<div class="form-group">
 						<h1 class="title">Job Description</h1>
 						<label>Title Of your Job</label>
-						<input class="form-control" type="text" name="job-title" placeholder="Example: I need help with Blog writing">
+						<input class="form-control" type="text" name="job_title" placeholder="Example: I need help with Blog writing">
 
 						<label>Category</label>
-						<select class="form-control">
-							<option>-----</option>
-							<option>Web Development</option>
-							<option>Mobile Development</option>
-							<option>Designing</option>
-							<option>Writing</option>
-							<option>Marketing</option>
-							<option>Accounting</option>
-							<option>Admin Support</option>
-							<option>Other</option>
+						<select class="form-control" name="job_category">
+
+							<?php  
+
+								$sql = "SELECT * FROM categories";
+								$query = mysqli_query($conn, $sql);
+								if (!$query) {
+									die() . mysqli_error($conn);
+								} else {
+									while ( $row = mysqli_fetch_assoc($query) ) { ?>
+
+										<option value="<?= $row['category_name']; ?>"><?= $row['category_name']; ?></option>
+										 
+									<?php }
+								}
+
+
+							?>
+
 						</select>
 
 						<label>Skills Level</label>
-						<select class="form-control">
-							<option>------</option>
+						<select class="form-control" name="skills_level">
 							<option>Expert</option>
 							<option>Intermediate</option>
 							<option>Entry</option>
@@ -34,26 +71,26 @@
 
 					<div class="form-group">
 						<h1 class="title">Rate & Availability</h1>
-						<label>How Would You Like To Pay</label>
-						<select class="form-control">
+						<!-- <label>How Would You Like To Pay</label> -->
+						<!-- <select class="form-control">
 							<option>Fixed Price</option>
 							<option id="hrrate" onclick="rate_hour();">pay by the hour</option>
-						</select>
-						<input class="form-control" type="text" name="hourrate" placeholder="Enter your per hour rate" id="hourrate">
+						</select> -->
+						<!-- <input class="form-control" type="text" name="hourrate" placeholder="Enter your per hour rate" id="hourrate"> -->
 						<label>How long do you expect this job to last?</label>
-						<input class="form-control" type="text" name="time" placeholder="Enter No of Days">
+						<input class="form-control" type="text" name="job_days" placeholder="Enter No of Days">
 						<div id="job-price">
 						<label>Job Price</label>
-						<input class="form-control" type="text" name="price" placeholder="Enter Job price">
+						<input class="form-control" type="text" name="job_price" placeholder="Enter Job price">
 						</div>
 						
 						<label>Job Description</label>
-						<textarea class="form-control" placeholder="Put Your Job requirements | Describe your job in details"></textarea>
+						<textarea name="job_desc" class="form-control" placeholder="Put Your Job requirements | Describe your job in details"></textarea>
 
-						<label>Add Files</label>
-						<input class="form-control" type="file" name="doc">
+						<!-- <label>Add Files</label>
+						<input class="form-control" type="file" name="doc"> -->
 					</div>
-					<input type="submit" name="submit" value="Post Job" class="btn custom-button-2 btn-lg">
+					<input type="submit" name="job_submit" value="Post Job" class="btn custom-button-2 btn-lg">
 				</form>
 			</div><!-- job Form -->
 		</div>
