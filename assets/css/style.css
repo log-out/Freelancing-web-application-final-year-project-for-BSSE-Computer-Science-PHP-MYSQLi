@@ -587,6 +587,13 @@ footer{
 .chat-form input[type="file"]{
 	display: none !important;
 }
+.modal-body input{
+	margin-top: 20px;
+	color: #000;
+}
+.modal-body input[type="file"]{
+	display: none !important;
+}
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
