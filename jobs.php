@@ -1,15 +1,19 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+$username = $_SESSION['username'];
+
+?>
 
 <?php  
 	if (isset($_POST['bid_submit'])) {
-		$bid_niche = $_POST['niche_id'];
-		$bid_price = $_POST['bid_price'];
-		$bid_days = $_POST['bid_days'];
-		$bid_desc = $_POST['bid_desc'];
 
-		$username = $_SESSION['username'];
+		$bid_niche 		= $_POST['niche_id'];
+		$bid_price	 	= $_POST['bid_price'];
+		$bid_days 		= $_POST['bid_days'];
+		$bid_desc 		= $_POST['bid_desc'];
+		$bid_request_id = $_POST['bid_request_id'];
 
-		$sql = "INSERT INTO bids(username, bid_niche, bid_price, bid_day, bid_desc) VALUES('{$username}', '{$bid_niche}', '{$bid_price}', '{$bid_days}', '{$bid_desc}' )";
+
+		$sql = "INSERT INTO bids(username, bid_request_id, bid_niche, bid_price, bid_day, bid_desc) VALUES('{$username}', '{$bid_request_id}', '{$bid_niche}', '{$bid_price}', '{$bid_days}', '{$bid_desc}' )";
 
 		$query = mysqli_query($conn, $sql);
 		if ($query) { ?>
@@ -48,15 +52,30 @@
 	$sql = "SELECT * FROM jobs ORDER BY id DESC";
 
 	$query = mysqli_query($conn, $sql);
-	while ( $row = mysqli_fetch_assoc( $query ) ) { ?>
+	while ( $row = mysqli_fetch_assoc( $query ) ) { 
+		$job_id = $row['id']; ?>
 		
 	<div class="row row_striped job_row">
 	      <div class="job_title pull-left">
 	           <h3><?= $row['job_title']; ?></h3>
 	      </div>
 	      <div class="pull-right">
-	      	<a href="#" class="btn btn-info" data-toggle="modal" data-target="#bidNow_<?= $row['id'] ?>">Bid Now</a>
+	
+	<?php  
+		$sql2 = "SELECT * FROM bids WHERE username = '{$username}' AND bid_request_id = '{$job_id}' ";
+		$query2 = mysqli_query($conn, $sql2);
+
+		$num_rows = mysqli_num_rows($query2);
+
+		if ($num_rows >= 1) { 
+			echo "<input type='submit' disabled='' class='btn btn-info' value='Bid Now'>";
+		} elseif ($num_rows == 0) { ?>
+			<a href='#' class='btn btn-info' data-toggle='modal' data-target='#bidNow_<?= $row['id'] ?>'>Bid Now</a>
+		<?php } ?>
+
+
 	      </div>
+	      <div class="clearfix"></div>
 
 
        	<!-- Modal -->
@@ -102,6 +121,7 @@
 	            			<div class="form-group">
 	            				<label for="">Days</label>
 	            				<input type="number" name="bid_days" class="form-control">
+	            				<input type="hidden" value="<?= $row['id']; ?>" name="bid_request_id">
 	            			</div>
 	            			<div class="form-group">
 	            				<label for="">Description</label>
@@ -126,7 +146,7 @@
 
 
 
-	      <div class="clearfix"></div>
+	      
 	           <p class="job_desc">
 	                <strong>Est. Time: </strong> <span><?= $row['job_days']; ?> days</span> 
 	                <strong>Budget: </strong> <span>$<?= $row['job_price']; ?></span>
