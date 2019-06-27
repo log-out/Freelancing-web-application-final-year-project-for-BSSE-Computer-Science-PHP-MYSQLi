@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 12:37 PM
+-- Generation Time: Jun 27, 2019 at 01:24 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `ed`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bids`
+--
+
+CREATE TABLE `bids` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `bid_niche` varchar(256) NOT NULL,
+  `bid_price` int(255) NOT NULL,
+  `bid_day` int(255) NOT NULL,
+  `bid_status` varchar(256) NOT NULL DEFAULT 'pending',
+  `bid_desc` varchar(256) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bids`
+--
+
+INSERT INTO `bids` (`id`, `username`, `bid_niche`, `bid_price`, `bid_day`, `bid_status`, `bid_desc`, `date`) VALUES
+(1, 'admin', '9', 55, 10, 'pending', 'Hi, i can design and build a beautiful website for you.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '2019-06-27 16:16:25');
 
 -- --------------------------------------------------------
 
@@ -185,6 +209,12 @@ INSERT INTO `verifications` (`id`, `username`, `email_verification_status`, `ema
 --
 
 --
+-- Indexes for table `bids`
+--
+ALTER TABLE `bids`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -217,6 +247,12 @@ ALTER TABLE `verifications`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bids`
+--
+ALTER TABLE `bids`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
