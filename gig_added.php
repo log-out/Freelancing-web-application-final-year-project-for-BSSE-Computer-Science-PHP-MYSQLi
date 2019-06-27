@@ -36,7 +36,7 @@
 		<?php } else { ?>
 
 			<div class="alert alert-success ed_alert">
-			  <strong>Success!</strong> Your Gig has been published successfully. click on <a href="../id2/my_profile.php">My Profile</a> to view the gigs.
+			  <strong>Success!</strong> Your Gig has been published successfully. click on <a href="my_profile.php">My Profile</a> to view the gigs.
 			</div>
 
 		<?php }
