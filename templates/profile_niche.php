@@ -3,15 +3,24 @@
 		<div class="row">
 
 <?php 
-	$profile_data = load_my_profile_data(); 
+	if (isset($_GET['user'])) {
+     $user = $_GET['user'];
+     $sql = "SELECT * FROM users WHERE username = '{$user}' ";
+     $query = mysqli_query($conn, $sql);
+     $profile_data= mysqli_fetch_assoc($query);
+
+} else {
+	// load profile data
+	$profile_data = load_my_profile_data();
 	$profile_data = @$profile_data[0];
+	$user = $_SESSION['username']; 
+}
 ?>
 
 <?php 
 
-	$username = $_SESSION['username']; 
 	
-	$sql = "SELECT * FROM gig_data WHERE username = '{$username}' ";
+	$sql = "SELECT * FROM gig_data WHERE username = '{$user}' ";
 	$run_query = mysqli_query($conn, $sql);
 	if (!$run_query) {
 		die('gig data load failed') . mysqli_error($conn);
@@ -62,16 +71,25 @@
 
 ?>
 
-<div class="col-lg-4 fix_pad">
-    <div class="niche_card">
-          
-          <div class="gig-add">
-          	<a href="gig-form.php"><i class="fa fa-plus-circle"></i></a>
-          	<h4>Create A New Niche</h4>
-          </div>
-          
-    </div>
-</div>
+
+<?php  
+	if (isset($_GET['user'])) {
+		if ($_GET['user'] != $_SESSION['username']) {
+			echo "";
+		}
+	} else {?>
+		<div class="col-lg-4 fix_pad">
+		    <div class="niche_card">
+		          
+		          <div class="gig-add">
+		          	<a href="gig-form.php"><i class="fa fa-plus-circle"></i></a>
+		          	<h4>Create A New Niche</h4>
+		          </div>
+		          
+		    </div>
+		</div>
+<?php } ?>
+
 
 
 		</div>

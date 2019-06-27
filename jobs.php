@@ -2,6 +2,9 @@
 $username = $_SESSION['username'];
 
 ?>
+<?php if (!is_session_set()) {
+	header("Location: login.php");
+} ?>
 
 <?php  
 	if (isset($_POST['bid_submit'])) {
@@ -11,9 +14,10 @@ $username = $_SESSION['username'];
 		$bid_days 		= $_POST['bid_days'];
 		$bid_desc 		= $_POST['bid_desc'];
 		$bid_request_id = $_POST['bid_request_id'];
+		$bid_niche_title = $_POST['bid_niche_title'];
 
 
-		$sql = "INSERT INTO bids(username, bid_request_id, bid_niche, bid_price, bid_day, bid_desc) VALUES('{$username}', '{$bid_request_id}', '{$bid_niche}', '{$bid_price}', '{$bid_days}', '{$bid_desc}' )";
+		$sql = "INSERT INTO bids(username, bid_request_id, bid_niche_title, bid_niche, bid_price, bid_day, bid_desc) VALUES('{$username}', '{$bid_request_id}', '{$bid_niche_title}', '{$bid_niche}', '{$bid_price}', '{$bid_days}', '{$bid_desc}' )";
 
 		$query = mysqli_query($conn, $sql);
 		if ($query) { ?>
@@ -48,7 +52,7 @@ $username = $_SESSION['username'];
 <?php  
 	
 
-
+ 
 	$sql = "SELECT * FROM jobs ORDER BY id DESC";
 
 	$query = mysqli_query($conn, $sql);
@@ -122,6 +126,8 @@ $username = $_SESSION['username'];
 	            				<label for="">Days</label>
 	            				<input type="number" name="bid_days" class="form-control">
 	            				<input type="hidden" value="<?= $row['id']; ?>" name="bid_request_id">
+	            				<input type="hidden" value="<?= $value['niche_title']; ?>" name="bid_niche_title">
+
 	            			</div>
 	            			<div class="form-group">
 	            				<label for="">Description</label>

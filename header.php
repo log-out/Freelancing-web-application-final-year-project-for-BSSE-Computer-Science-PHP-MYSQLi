@@ -44,11 +44,13 @@
 						<li><a href="login.php">Sign Up</a></li>
 					<?php } ?>
 							
-					<li><a href="jobs.php" class="btn btn-sm custom-button">View Jobs</a></li>
-					<li><a href="job-post.php" class="btn btn-sm custom-button">Post Job</a></li>
+					
 
 
 					<?php if (is_session_set()) { ?>
+
+					<li><a href="jobs.php" class="btn btn-sm custom-button">View Jobs</a></li>
+					<li><a href="job-post.php" class="btn btn-sm custom-button">Post Job</a></li>
 					 <li class="dropdown">
     					<img src="assets/images/dp.jpg" class="dropdown-toggle img-responsive dp-img" data-toggle="dropdown">
     						<ul class="dropdown-menu">

@@ -1,4 +1,7 @@
 <?php include 'header.php'; ?>
+<?php if (!is_session_set()) {
+	header("Location: login.php");
+} ?>
 <div class="container">
 	<div class="row">
 		<div class="res-header">

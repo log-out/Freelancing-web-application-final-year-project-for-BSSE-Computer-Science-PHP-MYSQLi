@@ -1,5 +1,7 @@
 <?php include 'header.php'; ?>
-
+<?php if (!is_session_set()) {
+	header("Location: login.php");
+} ?>
 
 <div class="container" style="margin: 20px auto;">
 <form action="gig_added.php" method="post" enctype="multipart/form-data">

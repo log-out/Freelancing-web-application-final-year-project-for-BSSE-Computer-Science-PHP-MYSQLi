@@ -1,4 +1,7 @@
 <?php include 'header.php'; ?>
+<?php if (!is_session_set()) {
+  header("Location: login.php");
+} ?>
 <link rel="stylesheet" type="text/css" href="assets/css/chat.css">
 
 <div class="container app">

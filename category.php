@@ -1,5 +1,8 @@
 <?php include 'header.php'; ?>
 <?php include "includes/conn.php" ?>
+<?php if (!is_session_set()) {
+	header("Location: login.php");
+} ?>
 
 
 <div class="row" style="margin: 30px auto;">

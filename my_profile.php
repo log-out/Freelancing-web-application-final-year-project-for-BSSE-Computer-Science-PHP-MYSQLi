@@ -5,9 +5,17 @@
 
 <?php 
 
+if (isset($_GET['user'])) {
+     $user = $_GET['user'];
+     $sql = "SELECT * FROM users WHERE username = '{$user}' ";
+     $query = mysqli_query($conn, $sql);
+     $profile_data= mysqli_fetch_assoc($query);
+
+} else {
 	// load profile data
 	$profile_data = load_my_profile_data();
 	$profile_data = @$profile_data[0];
+}
 
 ?>
 
@@ -32,7 +40,16 @@
 					<?php if (!$profile_data['profile_title']): ?>
 						<p id="ptitle" class="profile_title">Enter your profile title in a few words. <a href="#" id="edit_ptitle"> <span style="font-size: 15px; margin-left: 10px;" class="fa fa-pencil-alt"></span></a></p>
 					<?php else: ?>
-                    	<p id="ptitle" class="profile_title"><?= $profile_data['profile_title']; ?> <a href="#" id="edit_ptitle"> <span style="font-size: 15px; margin-left: 10px;" class="fa fa-pencil-alt"></span></a></p>
+                    	<p id="ptitle" class="profile_title"><?= $profile_data['profile_title']; ?> 
+          <?php if (isset($_GET['user'])) {
+               if ($_GET['user'] != $_SESSION['username']) { 
+                   echo "";
+               } 
+          } else { ?>
+               <a href="#" id="edit_ptitle"> <span style="font-size: 15px; margin-left: 10px;" class="fa fa-pencil-alt"></span></a>
+          <?php } ?>
+                         
+                    </p>
                 	<?php endif; ?>
 					
 					<div class="ed_hide" id="ptitle_field">
@@ -115,7 +132,14 @@
                			<p id="show_pinfo"><?= $profile_data['profile_info']; ?></p>
                		</div>
                		<div class="col-lg-1">
-               			<a href="#" id="show_info_form"><span class="fa fa-edit"></span></a>
+          <?php if (isset($_GET['user'])) {
+               if ($_GET['user'] != $_SESSION['username']) { 
+                   echo "";
+               } 
+          } else { ?>
+               <a href="#" id="show_info_form"><span class="fa fa-edit"></span></a>
+          <?php } ?>                    
+               			
                		</div>
                	</div>
 
