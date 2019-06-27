@@ -488,3 +488,6 @@ p.field_desc {
     }
 }*/
 
+.ed_modal input {
+  margin-top: 0px !important;
+}
