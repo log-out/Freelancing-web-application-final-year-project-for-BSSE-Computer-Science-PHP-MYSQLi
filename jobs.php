@@ -15,9 +15,10 @@ $username = $_SESSION['username'];
 		$bid_desc 		= $_POST['bid_desc'];
 		$bid_request_id = $_POST['bid_request_id'];
 		$bid_niche_title = $_POST['bid_niche_title'];
+		$job_posted_by = $_POST['job_posted_by'];
 
 
-		$sql = "INSERT INTO bids(username, bid_request_id, bid_niche_title, bid_niche, bid_price, bid_day, bid_desc) VALUES('{$username}', '{$bid_request_id}', '{$bid_niche_title}', '{$bid_niche}', '{$bid_price}', '{$bid_days}', '{$bid_desc}' )";
+		$sql = "INSERT INTO bids(bid_by_username, job_posted_by, bid_request_id, bid_niche_title, bid_niche, bid_price, bid_day, bid_desc) VALUES('{$username}', '{$job_posted_by}', '{$bid_request_id}', '{$bid_niche_title}', '{$bid_niche}', '{$bid_price}', '{$bid_days}', '{$bid_desc}' )";
 
 		$query = mysqli_query($conn, $sql);
 		if ($query) { ?>
@@ -53,7 +54,7 @@ $username = $_SESSION['username'];
 	
 
  
-	$sql = "SELECT * FROM jobs ORDER BY id DESC";
+	$sql = "SELECT * FROM jobs WHERE username != '{$username}' ORDER BY id DESC";
 
 	$query = mysqli_query($conn, $sql);
 	while ( $row = mysqli_fetch_assoc( $query ) ) { 
@@ -66,10 +67,10 @@ $username = $_SESSION['username'];
 	      <div class="pull-right">
 	
 	<?php  
-		$sql2 = "SELECT * FROM bids WHERE username = '{$username}' AND bid_request_id = '{$job_id}' ";
+		$sql2 = "SELECT * FROM bids WHERE bid_by_username = '{$username}' AND bid_request_id = '{$job_id}' ";
 		$query2 = mysqli_query($conn, $sql2);
 
-		$num_rows = mysqli_num_rows($query2);
+		$num_rows = @mysqli_num_rows($query2);
 
 		if ($num_rows >= 1) { 
 			echo "<input type='submit' disabled='' class='btn btn-info' value='Bid Now'>";
@@ -127,6 +128,7 @@ $username = $_SESSION['username'];
 	            				<input type="number" name="bid_days" class="form-control">
 	            				<input type="hidden" value="<?= $row['id']; ?>" name="bid_request_id">
 	            				<input type="hidden" value="<?= $value['niche_title']; ?>" name="bid_niche_title">
+	            				<input type="hidden" value="<?= $row['username']; ?>" name="job_posted_by">
 
 	            			</div>
 	            			<div class="form-group">

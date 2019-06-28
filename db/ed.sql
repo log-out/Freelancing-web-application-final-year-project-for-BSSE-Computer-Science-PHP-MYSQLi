@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2019 at 02:59 PM
+-- Generation Time: Jun 28, 2019 at 03:01 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -30,13 +30,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bids` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `bid_by_username` varchar(255) NOT NULL,
+  `job_posted_by` varchar(256) DEFAULT NULL,
   `bid_request_id` int(255) NOT NULL,
+  `bid_niche_title` varchar(255) NOT NULL,
   `bid_niche` varchar(256) NOT NULL,
   `bid_price` int(255) NOT NULL,
   `bid_day` int(255) NOT NULL,
   `bid_status` varchar(256) NOT NULL DEFAULT 'pending',
-  `bid_desc` varchar(256) NOT NULL,
+  `bid_desc` varchar(25600) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,9 +46,12 @@ CREATE TABLE `bids` (
 -- Dumping data for table `bids`
 --
 
-INSERT INTO `bids` (`id`, `username`, `bid_request_id`, `bid_niche`, `bid_price`, `bid_day`, `bid_status`, `bid_desc`, `date`) VALUES
-(1, 'admin', 0, '9', 55, 10, 'pending', 'Hi, i can design and build a beautiful website for you.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '2019-06-27 16:16:25'),
-(4, 'admin', 4, '7', 45, 4, 'pending', 'i can write the content for you', '2019-06-27 16:34:51');
+INSERT INTO `bids` (`id`, `bid_by_username`, `job_posted_by`, `bid_request_id`, `bid_niche_title`, `bid_niche`, `bid_price`, `bid_day`, `bid_status`, `bid_desc`, `date`) VALUES
+(13, 'admin', 'test123', 6, 'I will design a professional wordpress website', '9', 100, 10, 'accepted', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', '2019-06-28 13:13:00'),
+(14, 'test123', 'admin', 5, 'I will design a professional wordpress website', '1', 200, 5, 'accepted', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-28 13:31:24'),
+(15, 'test123', 'admin', 4, 'I will design a professional wordpress website', '1', 200, 3, 'pending', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-28 13:40:00'),
+(16, 'test123', 'admin', 3, 'I will design a professional wordpress website', '1', 500, 30, 'accepted', 'I need a brand new logo for me website\r\n', '2019-06-28 17:37:57'),
+(17, 'test123', 'admin', 2, 'I will design a professional wordpress website', '1', 1000, 50, 'accepted', 'i need to done website as soon as possible with premium theme', '2019-06-28 17:58:23');
 
 -- --------------------------------------------------------
 
@@ -128,6 +133,7 @@ CREATE TABLE `jobs` (
   `job_days` int(11) DEFAULT NULL,
   `job_price` int(11) DEFAULT NULL,
   `job_desc` varchar(2555) DEFAULT NULL,
+  `job_status` varchar(255) NOT NULL DEFAULT 'pending',
   `job_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -135,11 +141,12 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `username`, `job_title`, `job_category`, `job_tags`, `skills_level`, `job_days`, `job_price`, `job_desc`, `job_date`) VALUES
-(2, 'admin', 'I need help to design my wordpress website', 'Wordpress', NULL, 'Intermediate', 3, 100, 'i need to done website as soon as possible  with premium theme', '2019-06-26 14:20:49'),
-(3, 'admin', 'I need a brand new logo for me website', 'Logo Design', 'logo, design, graphich', 'Expert', 2, 50, 'I need a brand new logo for my company, with all the files within 2 days. please send your offer ', '2019-06-26 14:46:07'),
-(4, 'admin', 'I need a content writer for my website', 'Content Writter', 'content, writer, seo writer', 'Entry', 10, 80, 'I need a content writer for my website. the content should be 100% unique and SEO friendly', '2019-06-26 15:13:23'),
-(5, 'admin', 'I need a Android App', 'Android App', 'android, app, mobile app', 'Expert', 20, 100, 'i need a android app Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-26 15:32:23');
+INSERT INTO `jobs` (`id`, `username`, `job_title`, `job_category`, `job_tags`, `skills_level`, `job_days`, `job_price`, `job_desc`, `job_status`, `job_date`) VALUES
+(2, 'admin', 'I need help to design my wordpress website', 'Wordpress', NULL, 'Intermediate', 3, 100, 'i need to done website as soon as possible  with premium theme', 'pending', '2019-06-26 14:20:49'),
+(3, 'admin', 'I need a brand new logo for me website', 'Logo Design', 'logo, design, graphich', 'Expert', 2, 50, 'I need a brand new logo for my company, with all the files within 2 days. please send your offer ', 'pending', '2019-06-26 14:46:07'),
+(4, 'admin', 'I need a content writer for my website', 'Content Writter', 'content, writer, seo writer', 'Entry', 10, 80, 'I need a content writer for my website. the content should be 100% unique and SEO friendly', 'pending', '2019-06-26 15:13:23'),
+(5, 'admin', 'I need a Android App', 'Android App', 'android, app, mobile app', 'Expert', 20, 100, 'i need a android app Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'pending', '2019-06-26 15:32:23'),
+(6, 'test123', 'I need help to design my wordpress website', 'Wordpress', 'web, wordpress, design', 'Expert', 3, 100, 'Job Description include all details about your job. provide all details for job so right candidates will contact you.', 'pending', '2019-06-27 18:06:19');
 
 -- --------------------------------------------------------
 
@@ -180,8 +187,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `password`, `phone`, `profile_title`, `skills`, `certificatename`, `certificateimage`, `securityquestion`, `security_answer`, `profileimage`, `total_order_completed`, `profile_info`, `profile_status`, `profile_level`, `success_score`, `deliver_on_time`, `order_completetion`, `rating`, `user_ip`, `date`) VALUES
 (1, 'Aleem', 'Sharif', 'Aleemsharif', 'iamaleemsharif@gmail.com', 'Examination2015', '', NULL, '', '', '', '', NULL, '', 0, '', 'pending', 0, 0, 0, 0, 0, NULL, '2019-04-24 20:07:54'),
-(4, 'waqas', 'saleem', 'admin', 'waqas.saleem7431@gmail.com', '1234', '+923037156697', 'Professional WordPress Developer', '', 'Udemy web development', 'certificate_admin_1558899449.jpg', 'Your Pet Name?', 'Puppy', 'profile_admin_1558899449.jpg', 0, 'ok I am professional developer Test Waqas Saleem Write a brief description about you, your skills, your work experience. hjsdbfhsbdkjf Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cons', 'verified', 0, 0, 0, 0, 0, NULL, '2019-05-25 10:24:44'),
-(5, 'test', 'user', 'test123', 'test.user7431@gmail.com', '123456789', '', 'Web Dev', '', '', '', '', NULL, '', 0, NULL, 'pending', 0, 0, 0, 0, 0, '::1', '2019-06-27 12:53:31');
+(4, 'waqas', 'saleem', 'admin', 'waqas.saleem7431@gmail.com', '1234', '+923037156697', 'Professional Web Developer', '', 'Udemy web development', 'certificate_admin_1558899449.jpg', 'Your Pet Name?', 'Puppy', 'profile_admin_1558899449.jpg', 0, 'kjbsdkjchjvvjh hjh', 'verified', 0, 0, 0, 0, 0, NULL, '2019-05-25 10:24:44'),
+(5, 'test', 'user', 'test123', 'black.hat7431@gmail.com', '123456789', '+923037156697', 'Web Dev', '', 'Udemy web course', 'certificate_test123_1561640712.jpg', 'Your Pet Name?', 'Puppy', 'profile_test123_1561640712.jpg', 0, 'kjbsdkjchjvvjh hjh', 'verified', 0, 0, 0, 0, 0, '::1', '2019-06-27 12:53:31');
 
 -- --------------------------------------------------------
 
@@ -207,7 +214,8 @@ CREATE TABLE `verifications` (
 
 INSERT INTO `verifications` (`id`, `username`, `email_verification_status`, `email_verification_code`, `phone_verification_status`, `phone_verification_code`, `image_verification_status`, `image_verification_code`, `date`) VALUES
 (8, 'admin', 'verified', '684326891', 'verified', '3342', '', '', '2019-05-25 17:14:46'),
-(9, 'admin2', 'verified', '671552121', 'verified', '2260', '', '', '2019-05-27 17:00:33');
+(9, 'admin2', 'verified', '671552121', 'verified', '2260', '', '', '2019-05-27 17:00:33'),
+(10, 'test123', 'pending', '489397390', 'verified', '3885', '', '', '2019-06-27 18:03:44');
 
 --
 -- Indexes for dumped tables
@@ -257,7 +265,7 @@ ALTER TABLE `verifications`
 -- AUTO_INCREMENT for table `bids`
 --
 ALTER TABLE `bids`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -275,7 +283,7 @@ ALTER TABLE `gig_data`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -287,7 +295,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `verifications`
 --
 ALTER TABLE `verifications`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

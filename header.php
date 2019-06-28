@@ -1,5 +1,8 @@
 <?php include 'includes/conn.php'; ?>
 <?php include 'functions.php'; ?>
+<?php 
+session_start();
+$username = $_SESSION['username']; ?>
 <!DOCTYPE html> 
 <html>
 <head>
@@ -49,10 +52,27 @@
 
 					<?php if (is_session_set()) { ?>
 
+		 <li class="dropdown">
+		 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="glyphicon 	glyphicon glyphicon glyphicon glyphicon-menu-down"></span></a>
+
+		 	<ul class="dropdown-menu">
+				<li><a href="offers.php">Offers</a></li>
+				<li><a href="orders.php">Orders</a></li>
+						
+				</ul>
+		 	</li>
+
 					<li><a href="jobs.php" class="btn btn-sm custom-button">View Jobs</a></li>
 					<li><a href="job-post.php" class="btn btn-sm custom-button">Post Job</a></li>
 					 <li class="dropdown">
-    					<img src="assets/images/dp.jpg" class="dropdown-toggle img-responsive dp-img" data-toggle="dropdown">
+
+	<?php  
+		$sql = "SELECT 	profileimage FROM users WHERE username = '{$username}' ";
+		$query = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($query);
+
+	?>				 	
+    					<img src="assets/images/profile_images/<?= $row['profileimage']; ?>" class="dropdown-toggle img-responsive dp-img" data-toggle="dropdown">
     						<ul class="dropdown-menu">
       							<li><a href="my_profile.php"><i class="fa fa-user"></i> Profile</a></li>
       							<li><a href="register.php"><i class="fa fa-cog"></i> Settings</a></li>
