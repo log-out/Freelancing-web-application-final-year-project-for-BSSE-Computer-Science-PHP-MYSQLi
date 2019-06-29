@@ -54,7 +54,7 @@ $username = $_SESSION['username'];
 	
 
  
-	$sql = "SELECT * FROM jobs WHERE username != '{$username}' ORDER BY id DESC";
+	$sql = "SELECT * FROM jobs WHERE username != '{$username}' AND job_status = 'pending' ORDER BY id DESC";
 
 	$query = mysqli_query($conn, $sql);
 	while ( $row = mysqli_fetch_assoc( $query ) ) { 
