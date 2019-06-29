@@ -54,7 +54,7 @@
 			               </div>
 			               <div class="">
 			                    <p class="pull-left rating">
-			                         <i class="fa fa-star"></i> <?= $niche_rating; ?>.0 (<?= $order_completed; ?>)
+			                         <i class="fa fa-star"></i> <?= $profile_data['rating']; ?>.0 (<?= $profile_data['total_order_completed']; ?>)
 			                    </p>
 			                    <p class="pull-right"><b>$<?= $niche_price; ?></b></p>
 			               </div>

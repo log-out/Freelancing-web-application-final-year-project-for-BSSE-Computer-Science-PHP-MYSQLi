@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2019 at 03:01 PM
+-- Generation Time: Jun 29, 2019 at 02:05 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -47,11 +47,10 @@ CREATE TABLE `bids` (
 --
 
 INSERT INTO `bids` (`id`, `bid_by_username`, `job_posted_by`, `bid_request_id`, `bid_niche_title`, `bid_niche`, `bid_price`, `bid_day`, `bid_status`, `bid_desc`, `date`) VALUES
-(13, 'admin', 'test123', 6, 'I will design a professional wordpress website', '9', 100, 10, 'accepted', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', '2019-06-28 13:13:00'),
-(14, 'test123', 'admin', 5, 'I will design a professional wordpress website', '1', 200, 5, 'accepted', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-28 13:31:24'),
-(15, 'test123', 'admin', 4, 'I will design a professional wordpress website', '1', 200, 3, 'pending', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-28 13:40:00'),
-(16, 'test123', 'admin', 3, 'I will design a professional wordpress website', '1', 500, 30, 'accepted', 'I need a brand new logo for me website\r\n', '2019-06-28 17:37:57'),
-(17, 'test123', 'admin', 2, 'I will design a professional wordpress website', '1', 1000, 50, 'accepted', 'i need to done website as soon as possible with premium theme', '2019-06-28 17:58:23');
+(13, 'admin', 'test123', 6, 'I will design a professional wordpress website', '9', 100, 10, 'over', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', '2019-06-28 13:13:00'),
+(18, 'test123', 'admin', 7, 'I will design a professional wordpress website', '1', 300, 4, 'over', 'done', '2019-06-29 01:31:33'),
+(19, 'admin', 'test123', 8, 'I will design a professional wordpress website', '3', 100, 7, 'over', 'i can do this job', '2019-06-29 13:22:36'),
+(20, 'admin', 'test123', 9, 'I will design a professional wordpress website', '7', 55, 3, 'over', 'can do this', '2019-06-29 13:52:19');
 
 -- --------------------------------------------------------
 
@@ -79,6 +78,33 @@ INSERT INTO `categories` (`id`, `category_name`, `category_slug`, `date`) VALUES
 (9, 'Android App', 'android-app', '2019-06-11 00:37:50'),
 (10, 'Web Researcher', 'web-researcher', '2019-06-11 00:37:56'),
 (11, 'Wordpress', 'wordpress', '2019-06-11 00:38:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(255) NOT NULL,
+  `send_to` varchar(255) NOT NULL,
+  `send_by` varchar(255) NOT NULL,
+  `message` varchar(25000) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `send_to`, `send_by`, `message`, `date`) VALUES
+(1, 'test123', 'admin', 'hi', '2019-06-29 15:37:25'),
+(2, 'test123', 'admin', 'how are you', '2019-06-29 16:48:33'),
+(3, 'test123', 'admin', 'hi', '2019-06-29 16:51:29'),
+(4, 'test123', 'admin', 'again', '2019-06-29 16:51:49'),
+(5, 'test123', 'admin', 'hiii', '2019-06-29 16:52:13'),
+(6, 'test123', 'admin', 'hii', '2019-06-29 16:53:13'),
+(7, 'test123', 'admin', 'test', '2019-06-29 16:53:47');
 
 -- --------------------------------------------------------
 
@@ -142,11 +168,44 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `username`, `job_title`, `job_category`, `job_tags`, `skills_level`, `job_days`, `job_price`, `job_desc`, `job_status`, `job_date`) VALUES
-(2, 'admin', 'I need help to design my wordpress website', 'Wordpress', NULL, 'Intermediate', 3, 100, 'i need to done website as soon as possible  with premium theme', 'pending', '2019-06-26 14:20:49'),
-(3, 'admin', 'I need a brand new logo for me website', 'Logo Design', 'logo, design, graphich', 'Expert', 2, 50, 'I need a brand new logo for my company, with all the files within 2 days. please send your offer ', 'pending', '2019-06-26 14:46:07'),
-(4, 'admin', 'I need a content writer for my website', 'Content Writter', 'content, writer, seo writer', 'Entry', 10, 80, 'I need a content writer for my website. the content should be 100% unique and SEO friendly', 'pending', '2019-06-26 15:13:23'),
-(5, 'admin', 'I need a Android App', 'Android App', 'android, app, mobile app', 'Expert', 20, 100, 'i need a android app Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'pending', '2019-06-26 15:32:23'),
-(6, 'test123', 'I need help to design my wordpress website', 'Wordpress', 'web, wordpress, design', 'Expert', 3, 100, 'Job Description include all details about your job. provide all details for job so right candidates will contact you.', 'pending', '2019-06-27 18:06:19');
+(6, 'test123', 'I need help to design my wordpress website', 'Wordpress', 'web, wordpress, design', 'Expert', 3, 100, 'Job Description include all details about your job. provide all details for job so right candidates will contact you.', 'over', '2019-06-27 18:06:19'),
+(7, 'admin', 'I need help to design my wordpress website', 'website design', 'logo, design, graphich', 'Expert', 3, 100, 'requirements', 'over', '2019-06-29 01:26:48'),
+(8, 'test123', 'I need a Android App', 'Android App', 'android, app, mobile app', 'Intermediate', 10, 100, 'i need an android app', 'over', '2019-06-29 13:19:32'),
+(9, 'test123', 'i need a logo designer', 'Logo Design', 'logo, design, graphich', 'Expert', 3, 50, 'need a logo', 'over', '2019-06-29 13:47:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(255) NOT NULL,
+  `order_id` int(255) NOT NULL,
+  `order_bid_by_username` varchar(256) NOT NULL,
+  `order_job_posted_by` varchar(256) NOT NULL,
+  `order_bid_request_id` int(255) NOT NULL,
+  `order_bid_niche_title` varchar(256) NOT NULL,
+  `order_price` int(11) NOT NULL,
+  `order_bid_niche_id` int(225) NOT NULL,
+  `order_bid_desc` varchar(2500) NOT NULL,
+  `oder_deliver_desc` varchar(2500) NOT NULL,
+  `order_started_date` varchar(255) NOT NULL,
+  `order_status` varchar(255) NOT NULL,
+  `order_deliver_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_accepted date` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_id`, `order_bid_by_username`, `order_job_posted_by`, `order_bid_request_id`, `order_bid_niche_title`, `order_price`, `order_bid_niche_id`, `order_bid_desc`, `oder_deliver_desc`, `order_started_date`, `order_status`, `order_deliver_date`, `order_accepted date`) VALUES
+(3, 13, 'admin', 'test123', 6, 'I will design a professional wordpress website', 100, 9, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', 'deliver done', '2019-06-28 13:13:00', 'over', '2019-06-29 01:13:13', NULL),
+(4, 13, 'admin', 'test123', 6, 'I will design a professional wordpress website', 100, 9, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', 'done', '2019-06-28 13:13:00', 'over', '2019-06-29 01:17:45', NULL),
+(5, 18, 'test123', 'admin', 7, 'I will design a professional wordpress website', 300, 1, 'done', 'here is order done', '2019-06-29 01:31:33', 'over', '2019-06-29 01:32:21', NULL),
+(6, 19, 'admin', 'test123', 8, 'I will design a professional wordpress website', 100, 3, 'i can do this job', 'here is your delivery enclosed', '2019-06-29 13:22:36', 'over', '2019-06-29 13:25:22', NULL),
+(7, 20, 'admin', 'test123', 9, 'I will design a professional wordpress website', 55, 7, 'can do this', 'done', '2019-06-29 13:52:19', 'over', '2019-06-29 13:54:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -176,6 +235,7 @@ CREATE TABLE `users` (
   `success_score` int(11) NOT NULL DEFAULT '0',
   `deliver_on_time` int(11) NOT NULL DEFAULT '0',
   `order_completetion` int(11) NOT NULL DEFAULT '0',
+  `balance` int(255) DEFAULT NULL,
   `rating` int(11) NOT NULL DEFAULT '0',
   `user_ip` varchar(256) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -185,10 +245,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `password`, `phone`, `profile_title`, `skills`, `certificatename`, `certificateimage`, `securityquestion`, `security_answer`, `profileimage`, `total_order_completed`, `profile_info`, `profile_status`, `profile_level`, `success_score`, `deliver_on_time`, `order_completetion`, `rating`, `user_ip`, `date`) VALUES
-(1, 'Aleem', 'Sharif', 'Aleemsharif', 'iamaleemsharif@gmail.com', 'Examination2015', '', NULL, '', '', '', '', NULL, '', 0, '', 'pending', 0, 0, 0, 0, 0, NULL, '2019-04-24 20:07:54'),
-(4, 'waqas', 'saleem', 'admin', 'waqas.saleem7431@gmail.com', '1234', '+923037156697', 'Professional Web Developer', '', 'Udemy web development', 'certificate_admin_1558899449.jpg', 'Your Pet Name?', 'Puppy', 'profile_admin_1558899449.jpg', 0, 'kjbsdkjchjvvjh hjh', 'verified', 0, 0, 0, 0, 0, NULL, '2019-05-25 10:24:44'),
-(5, 'test', 'user', 'test123', 'black.hat7431@gmail.com', '123456789', '+923037156697', 'Web Dev', '', 'Udemy web course', 'certificate_test123_1561640712.jpg', 'Your Pet Name?', 'Puppy', 'profile_test123_1561640712.jpg', 0, 'kjbsdkjchjvvjh hjh', 'verified', 0, 0, 0, 0, 0, '::1', '2019-06-27 12:53:31');
+INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `password`, `phone`, `profile_title`, `skills`, `certificatename`, `certificateimage`, `securityquestion`, `security_answer`, `profileimage`, `total_order_completed`, `profile_info`, `profile_status`, `profile_level`, `success_score`, `deliver_on_time`, `order_completetion`, `balance`, `rating`, `user_ip`, `date`) VALUES
+(1, 'Aleem', 'Sharif', 'Aleemsharif', 'iamaleemsharif@gmail.com', 'Examination2015', '', NULL, '', '', '', '', NULL, '', 3, '', 'pending', 0, 100, 100, 100, 100, 5, NULL, '2019-04-24 20:07:54'),
+(4, 'waqas', 'saleem', 'admin', 'waqas.saleem7431@gmail.com', '1234', '+923037156697', 'Professional Web Developer', '', 'Udemy web development', 'certificate_admin_1558899449.jpg', 'Your Pet Name?', 'Puppy', 'profile_admin_1558899449.jpg', 5, 'kjbsdkjchjvvjh hjh', 'verified', 0, 100, 100, 100, 255, 5, NULL, '2019-05-25 10:24:44'),
+(5, 'test', 'user', 'test123', 'black.hat7431@gmail.com', '123456789', '+923037156697', 'Web Dev', '', 'Udemy web course', 'certificate_test123_1561640712.jpg', 'Your Pet Name?', 'Puppy', 'profile_test123_1561640712.jpg', 4, 'kjbsdkjchjvvjh hjh', 'verified', 0, 100, 100, 100, 400, 5, '::1', '2019-06-27 12:53:31');
 
 -- --------------------------------------------------------
 
@@ -234,6 +294,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gig_data`
 --
 ALTER TABLE `gig_data`
@@ -243,6 +309,12 @@ ALTER TABLE `gig_data`
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -265,13 +337,19 @@ ALTER TABLE `verifications`
 -- AUTO_INCREMENT for table `bids`
 --
 ALTER TABLE `bids`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `gig_data`
@@ -283,7 +361,13 @@ ALTER TABLE `gig_data`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

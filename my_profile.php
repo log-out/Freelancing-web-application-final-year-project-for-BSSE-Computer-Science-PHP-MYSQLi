@@ -90,15 +90,19 @@ if (isset($_GET['user'])) {
                     </div>
                </div>    
 
-               <h4>Rating</h4>
-               <div class="progress">
+               <!-- <h4>Rating</h4> -->
+               <!-- <div class="progress">
 
                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:<?= $profile_data['rating']; ?>%">
                          <?= $profile_data['rating']; ?>%
                     </div>
-               </div>
+               </div> -->
 				
 				</div>
+
+               <div class="well">
+                   <strong>Current Balance:</strong> $<?= $profile_data['balance']; ?>
+               </div>
 
                		
 

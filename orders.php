@@ -100,7 +100,9 @@
 			echo "No Order Found!";
 		} else {
 
-		while ($row = mysqli_fetch_assoc($query)) { ?>
+		while ($row = mysqli_fetch_assoc($query)) { 
+			$bid_request_id = $row['bid_request_id'];
+			?>
 
 
 			<div class="row row_striped job_row">
@@ -113,9 +115,22 @@
 				                <strong>Job Posted By: </strong> <a href="my_profile.php?user=<?= $row['job_posted_by']; ?>"><span><?= $row['job_posted_by']; ?></span></a>
 				           </p>
 						</div>
-						<div class="pull-right">
-							<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#<?= $row['id'] ?>_deliver">Deliver Now</a>	
-							<a href="#" class="btn btn-danger">Cancel</a>
+	<div class="pull-right">
+
+<?php 
+	$sql3 = "SELECT * FROM orders WHERE order_bid_request_id = '{$bid_request_id}'";
+	$query3 = mysqli_query($conn, $sql3);
+	$row3 = mysqli_fetch_assoc($query3);
+
+?>
+
+
+		<?php if ($row3['order_status'] == 'delivered'): ?>
+			<input type="submit" class="btn btn-primary" disabled="" value="Deliver Now">
+		<?php else: ?>
+		<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#<?= $row['id'] ?>_deliver">Deliver Now</a>
+		<?php endif; ?>	
+		<a href="#" class="btn btn-danger">Cancel</a>
 
 
 	<!-- Modal -->

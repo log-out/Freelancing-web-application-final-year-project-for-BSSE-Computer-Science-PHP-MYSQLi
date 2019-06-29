@@ -2,7 +2,7 @@
 <?php include 'functions.php'; ?>
 <?php 
 session_start();
-$username = $_SESSION['username']; ?>
+@$username = $_SESSION['username']; ?>
 <!DOCTYPE html> 
 <html>
 <head>
