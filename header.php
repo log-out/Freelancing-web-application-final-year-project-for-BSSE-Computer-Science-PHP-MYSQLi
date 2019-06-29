@@ -3,6 +3,8 @@
 <?php 
 session_start();
 @$username = $_SESSION['username']; ?>
+
+
 <!DOCTYPE html> 
 <html>
 <head>
@@ -52,8 +54,40 @@ session_start();
 
 					<?php if (is_session_set()) { ?>
 
+<?php  
+	$sql3 = "SELECT * FROM chat WHERE send_to = '{$username}' AND status = 'unread' ";
+	$query3 = mysqli_query($conn, $sql3);
+	$total_sms = mysqli_num_rows($query3);
+
+?>						
+
+		<li class="dropdown">
+		 	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;"><?= $total_sms; ?></span> Messages</a>
+<ul class="dropdown-menu" style="max-height: 400px; overflow-y: scroll;">
+
+<?php  
+
+	while ( $row3 = mysqli_fetch_assoc($query3) ): ?>
+
+		<li style="padding: 2px 4px !important;">
+			<a href="chat.php?user=<?= $row3['send_by']; ?>" style="padding: 10px 10px; border: 1px solid #ddd;">
+				<strong style="margin-bottom: 0px;">You have recieved 1 new messages from <?= $row3['send_by']; ?> </strong><br>
+				<small style="color: #999;">
+					<?= $row3['message_by']; ?>
+				</small>
+			</a>
+		</li>
+		
+<?php endwhile ?>
+
+		
+			
+						
+		</ul>
+		</li>				
+
 		 <li class="dropdown">
-		 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="glyphicon 	glyphicon glyphicon glyphicon glyphicon-menu-down"></span></a>
+		 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 
 		 	<ul class="dropdown-menu">
 				<li><a href="offers.php">Offers</a></li>

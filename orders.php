@@ -130,7 +130,7 @@
 		<?php else: ?>
 		<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#<?= $row['id'] ?>_deliver">Deliver Now</a>
 		<?php endif; ?>	
-		<a href="#" class="btn btn-danger">Cancel</a>
+		<a href="chat.php?user=<?= $row['job_posted_by']; ?>" class="btn btn-danger">Message Now</a>
 
 
 	<!-- Modal -->
@@ -229,7 +229,7 @@
 				           </p>
 						</div>
 						<div class="pull-right">
-							<a href="#" class="btn btn-primary">Cancel</a>
+							<a href="chat.php?user=<?= $row['bid_by_username']; ?>" class="btn btn-primary">Send Message</a>
 
 						</div>
 						<div class="clearfix"></div>

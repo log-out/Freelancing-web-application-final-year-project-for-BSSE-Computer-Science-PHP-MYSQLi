@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2019 at 02:05 PM
+-- Generation Time: Jun 29, 2019 at 08:45 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -50,7 +50,8 @@ INSERT INTO `bids` (`id`, `bid_by_username`, `job_posted_by`, `bid_request_id`, 
 (13, 'admin', 'test123', 6, 'I will design a professional wordpress website', '9', 100, 10, 'over', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', '2019-06-28 13:13:00'),
 (18, 'test123', 'admin', 7, 'I will design a professional wordpress website', '1', 300, 4, 'over', 'done', '2019-06-29 01:31:33'),
 (19, 'admin', 'test123', 8, 'I will design a professional wordpress website', '3', 100, 7, 'over', 'i can do this job', '2019-06-29 13:22:36'),
-(20, 'admin', 'test123', 9, 'I will design a professional wordpress website', '7', 55, 3, 'over', 'can do this', '2019-06-29 13:52:19');
+(20, 'admin', 'test123', 9, 'I will design a professional wordpress website', '7', 55, 3, 'over', 'can do this', '2019-06-29 13:52:19'),
+(21, 'test123', 'admin', 10, 'I will design a professional wordpress website', '1', 12, 3, 'accepted', 'i can do', '2019-06-29 22:17:02');
 
 -- --------------------------------------------------------
 
@@ -87,9 +88,11 @@ INSERT INTO `categories` (`id`, `category_name`, `category_slug`, `date`) VALUES
 
 CREATE TABLE `chat` (
   `id` int(255) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
   `send_to` varchar(255) NOT NULL,
   `send_by` varchar(255) NOT NULL,
-  `message` varchar(25000) NOT NULL,
+  `message_by` varchar(25000) DEFAULT NULL,
+  `status` varchar(256) NOT NULL DEFAULT 'unread',
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -97,14 +100,31 @@ CREATE TABLE `chat` (
 -- Dumping data for table `chat`
 --
 
-INSERT INTO `chat` (`id`, `send_to`, `send_by`, `message`, `date`) VALUES
-(1, 'test123', 'admin', 'hi', '2019-06-29 15:37:25'),
-(2, 'test123', 'admin', 'how are you', '2019-06-29 16:48:33'),
-(3, 'test123', 'admin', 'hi', '2019-06-29 16:51:29'),
-(4, 'test123', 'admin', 'again', '2019-06-29 16:51:49'),
-(5, 'test123', 'admin', 'hiii', '2019-06-29 16:52:13'),
-(6, 'test123', 'admin', 'hii', '2019-06-29 16:53:13'),
-(7, 'test123', 'admin', 'test', '2019-06-29 16:53:47');
+INSERT INTO `chat` (`id`, `username`, `send_to`, `send_by`, `message_by`, `status`, `date`) VALUES
+(1, 'admin', 'test123', 'admin', 'hi', 'read', '2019-06-29 15:37:25'),
+(2, 'admin', 'test123', 'admin', 'how are you', 'read', '2019-06-29 16:48:33'),
+(3, 'admin', 'test123', 'admin', 'hi', 'read', '2019-06-29 16:51:29'),
+(4, 'admin', 'test123', 'admin', 'again', 'read', '2019-06-29 16:51:49'),
+(5, 'admin', 'test123', 'admin', 'hiii', 'read', '2019-06-29 16:52:13'),
+(6, 'admin', 'test123', 'admin', 'hii', 'read', '2019-06-29 16:53:13'),
+(7, 'admin', 'test123', 'admin', 'test', 'read', '2019-06-29 16:53:47'),
+(8, 'admin', 'test123', 'admin', 'hello', 'read', '2019-06-29 18:44:07'),
+(9, 'admin', 'test123', 'admin', 'mera name waqas h', 'read', '2019-06-29 18:44:40'),
+(10, 'admin', 'test123', 'admin', 'helo mra nam aleem h', 'read', '2019-06-29 19:21:46'),
+(11, 'test123', 'admin', 'test123', 'sorry aleem mra name h', 'read', '2019-06-29 19:22:43'),
+(12, NULL, 'test123', 'admin', 'kya hal h', 'read', '2019-06-29 20:27:21'),
+(13, 'test123', 'admin', 'test123', 'kya hal hai', 'read', '2019-06-29 20:31:21'),
+(14, 'admin', 'test123', 'admin', 'main theek hun tm sunao', 'read', '2019-06-29 20:31:43'),
+(15, 'admin', 'test123', 'admin', 'main theek hun tm sunao', 'read', '2019-06-29 20:31:51'),
+(16, 'test123', 'admin', 'test123', 'main b theek hun yr', 'read', '2019-06-29 20:32:11'),
+(17, 'admin', 'test123', 'admin', 'acha to phr sai work kr ra h na', 'read', '2019-06-29 20:32:29'),
+(18, 'test123', 'admin', 'test123', 'ok got it', 'read', '2019-06-29 21:27:58'),
+(19, 'admin', 'test123', 'admin', 'aur sunao', 'read', '2019-06-29 21:29:56'),
+(20, 'test123', 'admin', 'test123', 'bas theek yar', 'read', '2019-06-29 21:31:23'),
+(21, 'test123', 'admin', 'test123', 'good', 'read', '2019-06-29 21:33:04'),
+(22, 'admin', 'test123', 'admin', 'sunday ko project h', 'read', '2019-06-29 21:33:38'),
+(23, 'test123', 'admin', 'test123', 'ni monday ko', 'read', '2019-06-29 21:33:55'),
+(24, 'admin', 'test123', 'admin', 'hi', 'read', '2019-06-29 23:42:22');
 
 -- --------------------------------------------------------
 
@@ -171,7 +191,8 @@ INSERT INTO `jobs` (`id`, `username`, `job_title`, `job_category`, `job_tags`, `
 (6, 'test123', 'I need help to design my wordpress website', 'Wordpress', 'web, wordpress, design', 'Expert', 3, 100, 'Job Description include all details about your job. provide all details for job so right candidates will contact you.', 'over', '2019-06-27 18:06:19'),
 (7, 'admin', 'I need help to design my wordpress website', 'website design', 'logo, design, graphich', 'Expert', 3, 100, 'requirements', 'over', '2019-06-29 01:26:48'),
 (8, 'test123', 'I need a Android App', 'Android App', 'android, app, mobile app', 'Intermediate', 10, 100, 'i need an android app', 'over', '2019-06-29 13:19:32'),
-(9, 'test123', 'i need a logo designer', 'Logo Design', 'logo, design, graphich', 'Expert', 3, 50, 'need a logo', 'over', '2019-06-29 13:47:55');
+(9, 'test123', 'i need a logo designer', 'Logo Design', 'logo, design, graphich', 'Expert', 3, 50, 'need a logo', 'over', '2019-06-29 13:47:55'),
+(10, 'admin', 'I need a content writer for my website', 'Web Researcher', 'content, writer, seo writer', 'Expert', 10, 50, 'content writer', 'pending', '2019-06-29 22:16:01');
 
 -- --------------------------------------------------------
 
@@ -337,7 +358,7 @@ ALTER TABLE `verifications`
 -- AUTO_INCREMENT for table `bids`
 --
 ALTER TABLE `bids`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -349,7 +370,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `gig_data`
@@ -361,7 +382,7 @@ ALTER TABLE `gig_data`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `orders`

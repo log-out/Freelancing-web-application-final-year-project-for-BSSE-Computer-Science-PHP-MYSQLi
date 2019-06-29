@@ -79,6 +79,9 @@
 				</div>
 				<div class="pull-right">
 					<a href="offers.php?bid_id=<?= $bid_id; ?>&bid_by_user=<?= $db_user; ?>&job_posted_by=<?= $job_posted_by; ?>&accepted=true" class="btn btn-primary">Accept</a>
+
+					<a href="chat.php?user=<?= $row['bid_by_username'] ?>" class="btn btn-info">Message Now</a>
+
 					<a href="offers.php?bid_id=<?= $bid_id; ?>&bid_by_user=<?= $db_user; ?>&job_posted_by=<?= $job_posted_by; ?>&rejected=true" class="btn btn-danger">Reject</a>
 				</div>
 				<div class="clearfix"></div>
